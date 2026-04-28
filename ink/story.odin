@@ -539,7 +539,60 @@ execute_control_command :: proc(s: ^Story_State, cmd: Control_Command) -> bool {
 		}
 		eval_stack_push(s, new_list_object(out, alloc))
 
-	case .Turns_Since, .Read_Count, .Random, .Seed_Random, .Start_Thread:
+	case .Turns_Since, .Read_Count:
+		// Pop divert target, resolve to container, query visit_counts (READ_COUNT)
+		// or turn_indices (TURNS_SINCE). C# returns 0/-1 respectively if the
+		// container can't be resolved.
+		target_obj := eval_stack_pop(s)
+		dt, is_dt := target_obj.variant.(Divert_Target_Value)
+		if !is_dt {
+			story_state_error(s, fmt.tprintf("%v expected a divert target", cmd))
+			return true
+		}
+		target_pointer := story_pointer_at_path_string(s, dt.target)
+		count := 0
+		if !pointer_is_null(target_pointer) && target_pointer.container != nil {
+			if cmd == .Turns_Since {
+				count = story_state_turns_since_for_container(s, target_pointer.container, story_state_runtime_allocator(s))
+			} else {
+				count = story_state_visit_count_for_container(s, target_pointer.container, story_state_runtime_allocator(s))
+			}
+		} else {
+			count = -1 if cmd == .Turns_Since else 0
+		}
+		eval_stack_push_int(s, i64(count))
+
+	case .Random:
+		// RANDOM(min, max) — inclusive both ends. Seeded by storySeed +
+		// previousRandom; previousRandom is set to the .NET Random's nextInt
+		// (mirroring upstream so seeded walks stay deterministic).
+		max_obj := eval_stack_pop(s)
+		min_obj := eval_stack_pop(s)
+		max_i, _, _ := as_number(max_obj)
+		min_i, _, _ := as_number(min_obj)
+		random_range := int(max_i - min_i + 1)
+		if random_range <= 0 {
+			story_state_error(s, fmt.tprintf("RANDOM(%d, %d): max must be larger than min", min_i, max_i))
+			return true
+		}
+		rng: Net_Random
+		net_random_init(&rng, s.story_seed + s.previous_random)
+		next := net_random_next(&rng)
+		chosen := (next % random_range) + int(min_i)
+		eval_stack_push_int(s, i64(chosen))
+		s.previous_random = next
+
+	case .Seed_Random:
+		seed_obj := eval_stack_pop(s)
+		seed_i, _, _ := as_number(seed_obj)
+		s.story_seed = int(seed_i)
+		s.previous_random = 0
+		// SEED_RANDOM is a function; push a void result.
+		v := new(Object, story_state_runtime_allocator(s))
+		v.variant = Void{}
+		eval_stack_push(s, v)
+
+	case .Start_Thread:
 		story_state_error(s, fmt.tprintf("control command %v not yet implemented", cmd))
 	}
 

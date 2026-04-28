@@ -1,0 +1,852 @@
+SEED 6
+TURN_LIMIT 500
+
+=== STEP 0 (initial) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": []
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {},
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 1 (continue) ===
+OUTPUT "You enter the tavern. (visit 1)\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "tavern.0",
+                "exp": false,
+                "idx": 8,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.7",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You enter the tavern. (visit ",
+        "^1",
+        "^)",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {
+    "tavern": -1
+  },
+  "variablesState": {},
+  "visitCounts": {
+    "tavern": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 2 (continue) ===
+OUTPUT "A roll of 4.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "tavern.0",
+                "exp": false,
+                "idx": 22,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.21",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^A roll of ",
+        "^4",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {
+    "tavern": -1
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "tavern": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 3 (continue) ===
+OUTPUT "It's a high roll.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 3,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.48",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "choiceThreads": {
+        "1": {
+          "callstack": [
+            {
+              "cPath": "tavern.0",
+              "exp": false,
+              "idx": 36,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "tavern.0.35",
+          "threadIndex": 1
+        },
+        "2": {
+          "callstack": [
+            {
+              "cPath": "tavern.0",
+              "exp": false,
+              "idx": 42,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "tavern.0.41",
+          "threadIndex": 2
+        },
+        "3": {
+          "callstack": [
+            {
+              "cPath": "tavern.0",
+              "exp": false,
+              "idx": 48,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "tavern.0.47",
+          "threadIndex": 3
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "tavern.0.36",
+          "originalThreadIndex": 1,
+          "targetPath": "tavern.0.c-0",
+          "text": "Order ale"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "tavern.0.42",
+          "originalThreadIndex": 2,
+          "targetPath": "tavern.0.c-1",
+          "text": "Visit bard"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "tavern.0.48",
+          "originalThreadIndex": 3,
+          "targetPath": "tavern.0.c-2",
+          "text": "Leave"
+        }
+      ],
+      "outputStream": [
+        "^ It's a high roll. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {
+    "tavern": -1
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "tavern": 1
+  }
+}
+STATE_JSON_END
+
+CHOICES 3
+  [0] "Order ale" index=0 pathOnChoice=tavern.0.c-0 threadAtGen=1
+  [1] "Visit bard" index=1 pathOnChoice=tavern.0.c-1 threadAtGen=2
+  [2] "Leave" index=2 pathOnChoice=tavern.0.c-2 threadAtGen=3
+PICK 0
+=== STEP 4 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 3,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "tavern.0.c-0",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.35",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ It's a high roll. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {
+    "tavern": -1
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "tavern": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 5 (continue) ===
+OUTPUT "You drink ale. (count 1)\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 3,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ale",
+                "exp": false,
+                "idx": 8,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ale.7",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ ",
+        "^You drink ale. (count ",
+        "^1",
+        "^)",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": -1
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 6 (continue) ===
+OUTPUT "You haven't met the bard yet.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 3,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ale",
+                "exp": false,
+                "idx": 18,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ale.17",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ You haven't met the bard yet. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": -1
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 7 (continue) ===
+OUTPUT "You enter the tavern. (visit 2)\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 3,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "tavern.0",
+                "exp": false,
+                "idx": 8,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.7",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You enter the tavern. (visit ",
+        "^2",
+        "^)",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": 0
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 8 (continue) ===
+OUTPUT "A roll of 4.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 3,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "tavern.0",
+                "exp": false,
+                "idx": 22,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.21",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^A roll of ",
+        "^4",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1216883517,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": 0
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 9 (continue) ===
+OUTPUT "It's a high roll.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 6,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.48",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "choiceThreads": {
+        "4": {
+          "callstack": [
+            {
+              "cPath": "tavern.0",
+              "exp": false,
+              "idx": 36,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "tavern.0.35",
+          "threadIndex": 4
+        },
+        "5": {
+          "callstack": [
+            {
+              "cPath": "tavern.0",
+              "exp": false,
+              "idx": 42,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "tavern.0.41",
+          "threadIndex": 5
+        },
+        "6": {
+          "callstack": [
+            {
+              "cPath": "tavern.0",
+              "exp": false,
+              "idx": 48,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "tavern.0.47",
+          "threadIndex": 6
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "tavern.0.36",
+          "originalThreadIndex": 4,
+          "targetPath": "tavern.0.c-0",
+          "text": "Order ale"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "tavern.0.42",
+          "originalThreadIndex": 5,
+          "targetPath": "tavern.0.c-1",
+          "text": "Visit bard"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "tavern.0.48",
+          "originalThreadIndex": 6,
+          "targetPath": "tavern.0.c-2",
+          "text": "Leave"
+        }
+      ],
+      "outputStream": [
+        "^ It's a high roll. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1216883517,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": 0
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 2
+  }
+}
+STATE_JSON_END
+
+CHOICES 3
+  [0] "Order ale" index=0 pathOnChoice=tavern.0.c-0 threadAtGen=4
+  [1] "Visit bard" index=1 pathOnChoice=tavern.0.c-1 threadAtGen=5
+  [2] "Leave" index=2 pathOnChoice=tavern.0.c-2 threadAtGen=6
+PICK 2
+=== STEP 10 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 6,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "tavern.0.c-2",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "tavern.0.47",
+            "threadIndex": 6
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ It's a high roll. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1216883517,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": 0
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 11 (continue) ===
+OUTPUT "You leave after 2 tavern visits.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 6,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "leave",
+                "exp": false,
+                "idx": 8,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "leave.7",
+            "threadIndex": 6
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ ",
+        "^You leave after ",
+        "^2",
+        "^ tavern visits.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1216883517,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": 0
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 12 (continue) ===
+OUTPUT "Ale 1 times. Bard 0 times.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 6,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "leave",
+                "exp": false,
+                "idx": 22,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "leave.21",
+            "threadIndex": 6
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Ale ",
+        "^1",
+        "^ times. Bard ",
+        "^0",
+        "^ times.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1216883517,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": 0
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 13 (continue) ===
+OUTPUT "Partial visit.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 6,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Partial visit. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1216883517,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {
+    "ale": 0,
+    "tavern": 0
+  },
+  "variablesState": {
+    "last_roll": 4
+  },
+  "visitCounts": {
+    "ale": 1,
+    "tavern": 2
+  }
+}
+STATE_JSON_END
+
+=== END ===
+
+TOTAL_STEPS 13
+TURNS 2
+HALT_REASON end_of_story

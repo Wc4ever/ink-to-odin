@@ -10,11 +10,13 @@ import "core:testing"
 // directory (a #load_directory of seed_*.log files). Add a new fixture by
 // loading its bytes here, dropping it into FIXTURES below, and committing
 // goldens under tests/golden/reference/<name>/.
-INTERCEPT_JSON :: #load("../../tests/fixtures/the_intercept/TheIntercept.ink.json")
-LISTS_JSON     :: #load("../../tests/fixtures/lists/Lists.ink.json")
+INTERCEPT_JSON      :: #load("../../tests/fixtures/the_intercept/TheIntercept.ink.json")
+LISTS_JSON          :: #load("../../tests/fixtures/lists/Lists.ink.json")
+RANDOM_VISITS_JSON  :: #load("../../tests/fixtures/random_visits/RandomVisits.ink.json")
 
-INTERCEPT_GOLDENS := #load_directory("../../tests/golden/reference/the_intercept")
-LISTS_GOLDENS     := #load_directory("../../tests/golden/reference/lists")
+INTERCEPT_GOLDENS     := #load_directory("../../tests/golden/reference/the_intercept")
+LISTS_GOLDENS         := #load_directory("../../tests/golden/reference/lists")
+RANDOM_VISITS_GOLDENS := #load_directory("../../tests/golden/reference/random_visits")
 
 Fixture :: struct {
 	name:    string,
@@ -29,8 +31,9 @@ Fixture :: struct {
 @(test)
 test_diff_all_seeds :: proc(t: ^testing.T) {
 	fxs := [?]Fixture{
-		{name = "the_intercept", story = string(INTERCEPT_JSON), goldens = INTERCEPT_GOLDENS},
-		{name = "lists",         story = string(LISTS_JSON),     goldens = LISTS_GOLDENS},
+		{name = "the_intercept",  story = string(INTERCEPT_JSON),     goldens = INTERCEPT_GOLDENS},
+		{name = "lists",          story = string(LISTS_JSON),         goldens = LISTS_GOLDENS},
+		{name = "random_visits",  story = string(RANDOM_VISITS_JSON), goldens = RANDOM_VISITS_GOLDENS},
 	}
 	for fx in fxs do diff_fixture(t, fx)
 }
