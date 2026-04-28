@@ -14,10 +14,10 @@ Compiled_Story :: struct {
 	arena:              virtual.Arena,
 	ink_format_version: int,
 	root:               ^Object,
+	list_definitions:   List_Definitions,
 }
 
 compiled_story_destroy :: proc(story: ^Compiled_Story) {
 	virtual.arena_destroy(&story.arena)
-	story.root = nil
-	story.ink_format_version = 0
+	story^ = {}
 }

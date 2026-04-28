@@ -1,0 +1,4490 @@
+SEED 6
+TURN_LIMIT 500
+
+=== STEP 0 (initial) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": []
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {},
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 1 (continue) ===
+OUTPUT "Turn 1. The dragon is weak against Fire, Water (count 2).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 32,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.31",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Turn ",
+        "^1",
+        "^. The dragon is weak against ",
+        "^Fire, Water",
+        "^ (count ",
+        "^2",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 2 (continue) ===
+OUTPUT "Your attacks: . Your effects: Burn. Damage: Light (1).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 55,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.54",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Your attacks: ",
+        "^",
+        "^. Your effects: ",
+        "^Burn",
+        "^. Damage: ",
+        "^Light",
+        "^ (",
+        "^1",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 3 (continue) ===
+OUTPUT "No weakness in play yet.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 64,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.63",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ No weakness in play yet. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 4 (continue) ===
+OUTPUT "Earth still untried.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 73,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.72",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^      Earth still untried.      ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 5 (continue) ===
+OUTPUT "Power below cap.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.186",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "choiceThreads": {
+        "1": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 104,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.103",
+          "threadIndex": 1
+        },
+        "10": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 186,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.185",
+          "threadIndex": 10
+        },
+        "2": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 110,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.109",
+          "threadIndex": 2
+        },
+        "3": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 116,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.115",
+          "threadIndex": 3
+        },
+        "4": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 122,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.121",
+          "threadIndex": 4
+        },
+        "5": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 131,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.130",
+          "threadIndex": 5
+        },
+        "6": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 159,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.158",
+          "threadIndex": 6
+        },
+        "7": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 168,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.167",
+          "threadIndex": 7
+        },
+        "8": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 174,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.173",
+          "threadIndex": 8
+        },
+        "9": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 180,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.179",
+          "threadIndex": 9
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.104",
+          "originalThreadIndex": 1,
+          "targetPath": "start.0.c-0",
+          "text": "Cast Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.110",
+          "originalThreadIndex": 2,
+          "targetPath": "start.0.c-1",
+          "text": "Cast Water"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.116",
+          "originalThreadIndex": 3,
+          "targetPath": "start.0.c-2",
+          "text": "Cast Earth"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.122",
+          "originalThreadIndex": 4,
+          "targetPath": "start.0.c-3",
+          "text": "Cast Air"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.131",
+          "originalThreadIndex": 5,
+          "targetPath": "start.0.c-4",
+          "text": "Boost damage"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.159",
+          "originalThreadIndex": 6,
+          "targetPath": "start.0.c-7",
+          "text": "Add Stun"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.168",
+          "originalThreadIndex": 7,
+          "targetPath": "start.0.c-8",
+          "text": "Add Poison"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.174",
+          "originalThreadIndex": 8,
+          "targetPath": "start.0.c-9",
+          "text": "Inspect intersection"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.180",
+          "originalThreadIndex": 9,
+          "targetPath": "start.0.c-10",
+          "text": "Inspect difference"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.186",
+          "originalThreadIndex": 10,
+          "targetPath": "start.0.c-11",
+          "text": "Reset attacks"
+        }
+      ],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 10
+  [0] "Cast Fire" index=0 pathOnChoice=start.0.c-0 threadAtGen=1
+  [1] "Cast Water" index=1 pathOnChoice=start.0.c-1 threadAtGen=2
+  [2] "Cast Earth" index=2 pathOnChoice=start.0.c-2 threadAtGen=3
+  [3] "Cast Air" index=3 pathOnChoice=start.0.c-3 threadAtGen=4
+  [4] "Boost damage" index=4 pathOnChoice=start.0.c-4 threadAtGen=5
+  [5] "Add Stun" index=5 pathOnChoice=start.0.c-7 threadAtGen=6
+  [6] "Add Poison" index=6 pathOnChoice=start.0.c-8 threadAtGen=7
+  [7] "Inspect intersection" index=7 pathOnChoice=start.0.c-9 threadAtGen=8
+  [8] "Inspect difference" index=8 pathOnChoice=start.0.c-10 threadAtGen=9
+  [9] "Reset attacks" index=9 pathOnChoice=start.0.c-11 threadAtGen=10
+PICK 9
+=== STEP 6 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-11",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.185",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 7 (continue) ===
+OUTPUT "Turn 2. The dragon is weak against Fire, Water (count 2).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 32,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.31",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Turn ",
+        "^2",
+        "^. The dragon is weak against ",
+        "^Fire, Water",
+        "^ (count ",
+        "^2",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 8 (continue) ===
+OUTPUT "Your attacks: . Your effects: Burn. Damage: Light (1).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 55,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.54",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Your attacks: ",
+        "^",
+        "^. Your effects: ",
+        "^Burn",
+        "^. Damage: ",
+        "^Light",
+        "^ (",
+        "^1",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 9 (continue) ===
+OUTPUT "No weakness in play yet.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 64,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.63",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ No weakness in play yet. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 10 (continue) ===
+OUTPUT "Earth still untried.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 73,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.72",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^      Earth still untried.      ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 11 (continue) ===
+OUTPUT "Power below cap.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.186",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "choiceThreads": {
+        "11": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 104,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.103",
+          "threadIndex": 11
+        },
+        "12": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 110,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.109",
+          "threadIndex": 12
+        },
+        "13": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 116,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.115",
+          "threadIndex": 13
+        },
+        "14": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 122,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.121",
+          "threadIndex": 14
+        },
+        "15": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 131,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.130",
+          "threadIndex": 15
+        },
+        "16": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 159,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.158",
+          "threadIndex": 16
+        },
+        "17": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 168,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.167",
+          "threadIndex": 17
+        },
+        "18": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 174,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.173",
+          "threadIndex": 18
+        },
+        "19": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 180,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.179",
+          "threadIndex": 19
+        },
+        "20": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 186,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.185",
+          "threadIndex": 20
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.104",
+          "originalThreadIndex": 11,
+          "targetPath": "start.0.c-0",
+          "text": "Cast Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.110",
+          "originalThreadIndex": 12,
+          "targetPath": "start.0.c-1",
+          "text": "Cast Water"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.116",
+          "originalThreadIndex": 13,
+          "targetPath": "start.0.c-2",
+          "text": "Cast Earth"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.122",
+          "originalThreadIndex": 14,
+          "targetPath": "start.0.c-3",
+          "text": "Cast Air"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.131",
+          "originalThreadIndex": 15,
+          "targetPath": "start.0.c-4",
+          "text": "Boost damage"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.159",
+          "originalThreadIndex": 16,
+          "targetPath": "start.0.c-7",
+          "text": "Add Stun"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.168",
+          "originalThreadIndex": 17,
+          "targetPath": "start.0.c-8",
+          "text": "Add Poison"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.174",
+          "originalThreadIndex": 18,
+          "targetPath": "start.0.c-9",
+          "text": "Inspect intersection"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.180",
+          "originalThreadIndex": 19,
+          "targetPath": "start.0.c-10",
+          "text": "Inspect difference"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.186",
+          "originalThreadIndex": 20,
+          "targetPath": "start.0.c-11",
+          "text": "Reset attacks"
+        }
+      ],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 10
+  [0] "Cast Fire" index=0 pathOnChoice=start.0.c-0 threadAtGen=11
+  [1] "Cast Water" index=1 pathOnChoice=start.0.c-1 threadAtGen=12
+  [2] "Cast Earth" index=2 pathOnChoice=start.0.c-2 threadAtGen=13
+  [3] "Cast Air" index=3 pathOnChoice=start.0.c-3 threadAtGen=14
+  [4] "Boost damage" index=4 pathOnChoice=start.0.c-4 threadAtGen=15
+  [5] "Add Stun" index=5 pathOnChoice=start.0.c-7 threadAtGen=16
+  [6] "Add Poison" index=6 pathOnChoice=start.0.c-8 threadAtGen=17
+  [7] "Inspect intersection" index=7 pathOnChoice=start.0.c-9 threadAtGen=18
+  [8] "Inspect difference" index=8 pathOnChoice=start.0.c-10 threadAtGen=19
+  [9] "Reset attacks" index=9 pathOnChoice=start.0.c-11 threadAtGen=20
+PICK 8
+=== STEP 12 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-10",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.179",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 13 (continue) ===
+OUTPUT "Untried weakness: Fire, Water.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-10",
+                "exp": false,
+                "idx": 10,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.c-10.9",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Untried weakness: ",
+        "^Fire, Water",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 14 (continue) ===
+OUTPUT "Turn 3. The dragon is weak against Fire, Water (count 2).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 32,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.31",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Turn ",
+        "^3",
+        "^. The dragon is weak against ",
+        "^Fire, Water",
+        "^ (count ",
+        "^2",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 15 (continue) ===
+OUTPUT "Your attacks: . Your effects: Burn. Damage: Light (1).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 55,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.54",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Your attacks: ",
+        "^",
+        "^. Your effects: ",
+        "^Burn",
+        "^. Damage: ",
+        "^Light",
+        "^ (",
+        "^1",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 16 (continue) ===
+OUTPUT "No weakness in play yet.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 64,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.63",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ No weakness in play yet. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 17 (continue) ===
+OUTPUT "Earth still untried.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 73,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.72",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^      Earth still untried.      ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 18 (continue) ===
+OUTPUT "Power below cap.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 30,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.186",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "choiceThreads": {
+        "21": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 104,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.103",
+          "threadIndex": 21
+        },
+        "22": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 110,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.109",
+          "threadIndex": 22
+        },
+        "23": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 116,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.115",
+          "threadIndex": 23
+        },
+        "24": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 122,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.121",
+          "threadIndex": 24
+        },
+        "25": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 131,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.130",
+          "threadIndex": 25
+        },
+        "26": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 159,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.158",
+          "threadIndex": 26
+        },
+        "27": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 168,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.167",
+          "threadIndex": 27
+        },
+        "28": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 174,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.173",
+          "threadIndex": 28
+        },
+        "29": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 180,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.179",
+          "threadIndex": 29
+        },
+        "30": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 186,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.185",
+          "threadIndex": 30
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.104",
+          "originalThreadIndex": 21,
+          "targetPath": "start.0.c-0",
+          "text": "Cast Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.110",
+          "originalThreadIndex": 22,
+          "targetPath": "start.0.c-1",
+          "text": "Cast Water"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.116",
+          "originalThreadIndex": 23,
+          "targetPath": "start.0.c-2",
+          "text": "Cast Earth"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.122",
+          "originalThreadIndex": 24,
+          "targetPath": "start.0.c-3",
+          "text": "Cast Air"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.131",
+          "originalThreadIndex": 25,
+          "targetPath": "start.0.c-4",
+          "text": "Boost damage"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.159",
+          "originalThreadIndex": 26,
+          "targetPath": "start.0.c-7",
+          "text": "Add Stun"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.168",
+          "originalThreadIndex": 27,
+          "targetPath": "start.0.c-8",
+          "text": "Add Poison"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.174",
+          "originalThreadIndex": 28,
+          "targetPath": "start.0.c-9",
+          "text": "Inspect intersection"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.180",
+          "originalThreadIndex": 29,
+          "targetPath": "start.0.c-10",
+          "text": "Inspect difference"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.186",
+          "originalThreadIndex": 30,
+          "targetPath": "start.0.c-11",
+          "text": "Reset attacks"
+        }
+      ],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 10
+  [0] "Cast Fire" index=0 pathOnChoice=start.0.c-0 threadAtGen=21
+  [1] "Cast Water" index=1 pathOnChoice=start.0.c-1 threadAtGen=22
+  [2] "Cast Earth" index=2 pathOnChoice=start.0.c-2 threadAtGen=23
+  [3] "Cast Air" index=3 pathOnChoice=start.0.c-3 threadAtGen=24
+  [4] "Boost damage" index=4 pathOnChoice=start.0.c-4 threadAtGen=25
+  [5] "Add Stun" index=5 pathOnChoice=start.0.c-7 threadAtGen=26
+  [6] "Add Poison" index=6 pathOnChoice=start.0.c-8 threadAtGen=27
+  [7] "Inspect intersection" index=7 pathOnChoice=start.0.c-9 threadAtGen=28
+  [8] "Inspect difference" index=8 pathOnChoice=start.0.c-10 threadAtGen=29
+  [9] "Reset attacks" index=9 pathOnChoice=start.0.c-11 threadAtGen=30
+PICK 2
+=== STEP 19 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 30,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-2",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.115",
+            "threadIndex": 23
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "turns": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 20 (continue) ===
+OUTPUT "Turn 4. The dragon is weak against Fire, Water (count 2).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 30,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 32,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.31",
+            "threadIndex": 23
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Turn ",
+        "^4",
+        "^. The dragon is weak against ",
+        "^Fire, Water",
+        "^ (count ",
+        "^2",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 21 (continue) ===
+OUTPUT "Your attacks: Earth. Your effects: Burn. Damage: Light (1).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 30,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 55,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.54",
+            "threadIndex": 23
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Your attacks: ",
+        "^Earth",
+        "^. Your effects: ",
+        "^Burn",
+        "^. Damage: ",
+        "^Light",
+        "^ (",
+        "^1",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 22 (continue) ===
+OUTPUT "No weakness in play yet.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 30,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 64,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.63",
+            "threadIndex": 23
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ No weakness in play yet. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 23 (continue) ===
+OUTPUT "Earth in the mix.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 30,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 73,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.72",
+            "threadIndex": 23
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Earth in the mix. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 24 (continue) ===
+OUTPUT "Power below cap.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 41,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.186",
+            "threadIndex": 23
+          }
+        ]
+      },
+      "choiceThreads": {
+        "31": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 104,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.103",
+          "threadIndex": 31
+        },
+        "32": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 110,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.109",
+          "threadIndex": 32
+        },
+        "33": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 116,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.115",
+          "threadIndex": 33
+        },
+        "34": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 122,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.121",
+          "threadIndex": 34
+        },
+        "35": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 131,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.130",
+          "threadIndex": 35
+        },
+        "36": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 150,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.149",
+          "threadIndex": 36
+        },
+        "37": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 159,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.158",
+          "threadIndex": 37
+        },
+        "38": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 168,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.167",
+          "threadIndex": 38
+        },
+        "39": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 174,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.173",
+          "threadIndex": 39
+        },
+        "40": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 180,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.179",
+          "threadIndex": 40
+        },
+        "41": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 186,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.185",
+          "threadIndex": 41
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.104",
+          "originalThreadIndex": 31,
+          "targetPath": "start.0.c-0",
+          "text": "Cast Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.110",
+          "originalThreadIndex": 32,
+          "targetPath": "start.0.c-1",
+          "text": "Cast Water"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.116",
+          "originalThreadIndex": 33,
+          "targetPath": "start.0.c-2",
+          "text": "Cast Earth"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.122",
+          "originalThreadIndex": 34,
+          "targetPath": "start.0.c-3",
+          "text": "Cast Air"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.131",
+          "originalThreadIndex": 35,
+          "targetPath": "start.0.c-4",
+          "text": "Boost damage"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.150",
+          "originalThreadIndex": 36,
+          "targetPath": "start.0.c-6",
+          "text": "Drop Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.159",
+          "originalThreadIndex": 37,
+          "targetPath": "start.0.c-7",
+          "text": "Add Stun"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.168",
+          "originalThreadIndex": 38,
+          "targetPath": "start.0.c-8",
+          "text": "Add Poison"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.174",
+          "originalThreadIndex": 39,
+          "targetPath": "start.0.c-9",
+          "text": "Inspect intersection"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.180",
+          "originalThreadIndex": 40,
+          "targetPath": "start.0.c-10",
+          "text": "Inspect difference"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.186",
+          "originalThreadIndex": 41,
+          "targetPath": "start.0.c-11",
+          "text": "Reset attacks"
+        }
+      ],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 11
+  [0] "Cast Fire" index=0 pathOnChoice=start.0.c-0 threadAtGen=31
+  [1] "Cast Water" index=1 pathOnChoice=start.0.c-1 threadAtGen=32
+  [2] "Cast Earth" index=2 pathOnChoice=start.0.c-2 threadAtGen=33
+  [3] "Cast Air" index=3 pathOnChoice=start.0.c-3 threadAtGen=34
+  [4] "Boost damage" index=4 pathOnChoice=start.0.c-4 threadAtGen=35
+  [5] "Drop Fire" index=5 pathOnChoice=start.0.c-6 threadAtGen=36
+  [6] "Add Stun" index=6 pathOnChoice=start.0.c-7 threadAtGen=37
+  [7] "Add Poison" index=7 pathOnChoice=start.0.c-8 threadAtGen=38
+  [8] "Inspect intersection" index=8 pathOnChoice=start.0.c-9 threadAtGen=39
+  [9] "Inspect difference" index=9 pathOnChoice=start.0.c-10 threadAtGen=40
+  [10] "Reset attacks" index=10 pathOnChoice=start.0.c-11 threadAtGen=41
+PICK 8
+=== STEP 25 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 41,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-9",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.173",
+            "threadIndex": 39
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 26 (continue) ===
+OUTPUT "Common with weakness: .\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 41,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-9",
+                "exp": false,
+                "idx": 10,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.c-9.9",
+            "threadIndex": 39
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Common with weakness: ",
+        "^",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 27 (continue) ===
+OUTPUT "Turn 5. The dragon is weak against Fire, Water (count 2).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 41,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 32,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.31",
+            "threadIndex": 39
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Turn ",
+        "^5",
+        "^. The dragon is weak against ",
+        "^Fire, Water",
+        "^ (count ",
+        "^2",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 5
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 28 (continue) ===
+OUTPUT "Your attacks: Earth. Your effects: Burn. Damage: Light (1).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 41,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 55,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.54",
+            "threadIndex": 39
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Your attacks: ",
+        "^Earth",
+        "^. Your effects: ",
+        "^Burn",
+        "^. Damage: ",
+        "^Light",
+        "^ (",
+        "^1",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 5
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 29 (continue) ===
+OUTPUT "No weakness in play yet.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 41,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 64,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.63",
+            "threadIndex": 39
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ No weakness in play yet. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 5
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 30 (continue) ===
+OUTPUT "Earth in the mix.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 41,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 73,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.72",
+            "threadIndex": 39
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Earth in the mix. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 5
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 31 (continue) ===
+OUTPUT "Power below cap.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 52,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.186",
+            "threadIndex": 39
+          }
+        ]
+      },
+      "choiceThreads": {
+        "42": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 104,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.103",
+          "threadIndex": 42
+        },
+        "43": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 110,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.109",
+          "threadIndex": 43
+        },
+        "44": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 116,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.115",
+          "threadIndex": 44
+        },
+        "45": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 122,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.121",
+          "threadIndex": 45
+        },
+        "46": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 131,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.130",
+          "threadIndex": 46
+        },
+        "47": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 150,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.149",
+          "threadIndex": 47
+        },
+        "48": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 159,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.158",
+          "threadIndex": 48
+        },
+        "49": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 168,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.167",
+          "threadIndex": 49
+        },
+        "50": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 174,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.173",
+          "threadIndex": 50
+        },
+        "51": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 180,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.179",
+          "threadIndex": 51
+        },
+        "52": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 186,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.185",
+          "threadIndex": 52
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.104",
+          "originalThreadIndex": 42,
+          "targetPath": "start.0.c-0",
+          "text": "Cast Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.110",
+          "originalThreadIndex": 43,
+          "targetPath": "start.0.c-1",
+          "text": "Cast Water"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.116",
+          "originalThreadIndex": 44,
+          "targetPath": "start.0.c-2",
+          "text": "Cast Earth"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.122",
+          "originalThreadIndex": 45,
+          "targetPath": "start.0.c-3",
+          "text": "Cast Air"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.131",
+          "originalThreadIndex": 46,
+          "targetPath": "start.0.c-4",
+          "text": "Boost damage"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.150",
+          "originalThreadIndex": 47,
+          "targetPath": "start.0.c-6",
+          "text": "Drop Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.159",
+          "originalThreadIndex": 48,
+          "targetPath": "start.0.c-7",
+          "text": "Add Stun"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.168",
+          "originalThreadIndex": 49,
+          "targetPath": "start.0.c-8",
+          "text": "Add Poison"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.174",
+          "originalThreadIndex": 50,
+          "targetPath": "start.0.c-9",
+          "text": "Inspect intersection"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.180",
+          "originalThreadIndex": 51,
+          "targetPath": "start.0.c-10",
+          "text": "Inspect difference"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.186",
+          "originalThreadIndex": 52,
+          "targetPath": "start.0.c-11",
+          "text": "Reset attacks"
+        }
+      ],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 5
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 11
+  [0] "Cast Fire" index=0 pathOnChoice=start.0.c-0 threadAtGen=42
+  [1] "Cast Water" index=1 pathOnChoice=start.0.c-1 threadAtGen=43
+  [2] "Cast Earth" index=2 pathOnChoice=start.0.c-2 threadAtGen=44
+  [3] "Cast Air" index=3 pathOnChoice=start.0.c-3 threadAtGen=45
+  [4] "Boost damage" index=4 pathOnChoice=start.0.c-4 threadAtGen=46
+  [5] "Drop Fire" index=5 pathOnChoice=start.0.c-6 threadAtGen=47
+  [6] "Add Stun" index=6 pathOnChoice=start.0.c-7 threadAtGen=48
+  [7] "Add Poison" index=7 pathOnChoice=start.0.c-8 threadAtGen=49
+  [8] "Inspect intersection" index=8 pathOnChoice=start.0.c-9 threadAtGen=50
+  [9] "Inspect difference" index=9 pathOnChoice=start.0.c-10 threadAtGen=51
+  [10] "Reset attacks" index=10 pathOnChoice=start.0.c-11 threadAtGen=52
+PICK 0
+=== STEP 32 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 52,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-0",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.103",
+            "threadIndex": 42
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 4,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3
+      }
+    },
+    "turns": 5
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 33 (continue) ===
+OUTPUT "Turn 6. The dragon is weak against Fire, Water (count 2).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 52,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 32,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.31",
+            "threadIndex": 42
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Turn ",
+        "^6",
+        "^. The dragon is weak against ",
+        "^Fire, Water",
+        "^ (count ",
+        "^2",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 4,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 34 (continue) ===
+OUTPUT "Your attacks: Fire, Earth. Your effects: Burn. Damage: Light (1).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 52,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 55,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.54",
+            "threadIndex": 42
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Your attacks: ",
+        "^Fire, Earth",
+        "^. Your effects: ",
+        "^Burn",
+        "^. Damage: ",
+        "^Light",
+        "^ (",
+        "^1",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 4,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 35 (continue) ===
+OUTPUT "No weakness in play yet.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 52,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 64,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.63",
+            "threadIndex": 42
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ No weakness in play yet. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 4,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 36 (continue) ===
+OUTPUT "Earth in the mix.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 52,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 73,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.72",
+            "threadIndex": 42
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Earth in the mix. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 4,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 37 (continue) ===
+OUTPUT "Combo armed (2 elements).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 52,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0",
+                "exp": false,
+                "idx": 82,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.81",
+            "threadIndex": 42
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Combo armed (",
+        "^2",
+        "^ elements). ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 4,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 38 (continue) ===
+OUTPUT "Power below cap.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.186",
+            "threadIndex": 42
+          }
+        ]
+      },
+      "choiceThreads": {
+        "53": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 104,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.103",
+          "threadIndex": 53
+        },
+        "54": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 110,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.109",
+          "threadIndex": 54
+        },
+        "55": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 116,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.115",
+          "threadIndex": 55
+        },
+        "56": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 122,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.121",
+          "threadIndex": 56
+        },
+        "57": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 131,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.130",
+          "threadIndex": 57
+        },
+        "58": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 150,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.149",
+          "threadIndex": 58
+        },
+        "59": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 159,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.158",
+          "threadIndex": 59
+        },
+        "60": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 168,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.167",
+          "threadIndex": 60
+        },
+        "61": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 174,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.173",
+          "threadIndex": 61
+        },
+        "62": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 180,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.179",
+          "threadIndex": 62
+        },
+        "63": {
+          "callstack": [
+            {
+              "cPath": "start.0",
+              "exp": false,
+              "idx": 186,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "start.0.185",
+          "threadIndex": 63
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.104",
+          "originalThreadIndex": 53,
+          "targetPath": "start.0.c-0",
+          "text": "Cast Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.110",
+          "originalThreadIndex": 54,
+          "targetPath": "start.0.c-1",
+          "text": "Cast Water"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.116",
+          "originalThreadIndex": 55,
+          "targetPath": "start.0.c-2",
+          "text": "Cast Earth"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.122",
+          "originalThreadIndex": 56,
+          "targetPath": "start.0.c-3",
+          "text": "Cast Air"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.131",
+          "originalThreadIndex": 57,
+          "targetPath": "start.0.c-4",
+          "text": "Boost damage"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.150",
+          "originalThreadIndex": 58,
+          "targetPath": "start.0.c-6",
+          "text": "Drop Fire"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.159",
+          "originalThreadIndex": 59,
+          "targetPath": "start.0.c-7",
+          "text": "Add Stun"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.168",
+          "originalThreadIndex": 60,
+          "targetPath": "start.0.c-8",
+          "text": "Add Poison"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.174",
+          "originalThreadIndex": 61,
+          "targetPath": "start.0.c-9",
+          "text": "Inspect intersection"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.180",
+          "originalThreadIndex": 62,
+          "targetPath": "start.0.c-10",
+          "text": "Inspect difference"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "start.0.186",
+          "originalThreadIndex": 63,
+          "targetPath": "start.0.c-11",
+          "text": "Reset attacks"
+        }
+      ],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 4,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 11
+  [0] "Cast Fire" index=0 pathOnChoice=start.0.c-0 threadAtGen=53
+  [1] "Cast Water" index=1 pathOnChoice=start.0.c-1 threadAtGen=54
+  [2] "Cast Earth" index=2 pathOnChoice=start.0.c-2 threadAtGen=55
+  [3] "Cast Air" index=3 pathOnChoice=start.0.c-3 threadAtGen=56
+  [4] "Boost damage" index=4 pathOnChoice=start.0.c-4 threadAtGen=57
+  [5] "Drop Fire" index=5 pathOnChoice=start.0.c-6 threadAtGen=58
+  [6] "Add Stun" index=6 pathOnChoice=start.0.c-7 threadAtGen=59
+  [7] "Add Poison" index=7 pathOnChoice=start.0.c-8 threadAtGen=60
+  [8] "Inspect intersection" index=8 pathOnChoice=start.0.c-9 threadAtGen=61
+  [9] "Inspect difference" index=9 pathOnChoice=start.0.c-10 threadAtGen=62
+  [10] "Reset attacks" index=10 pathOnChoice=start.0.c-11 threadAtGen=63
+PICK 6
+=== STEP 39 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "start.0.c-7",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "start.0.158",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^        Power below cap.          ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 40 (continue) ===
+OUTPUT "Battle over after 6 turns.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 7,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.6",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ ",
+        "^Battle over after ",
+        "^6",
+        "^ turns.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 41 (continue) ===
+OUTPUT "Final attacks: Fire, Earth\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 13,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.12",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Final attacks:  ",
+        "^Fire, Earth",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 42 (continue) ===
+OUTPUT "Final effects: Burn, Stun\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 19,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.18",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Final effects:  ",
+        "^Burn, Stun",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 43 (continue) ===
+OUTPUT "Damage tier: Light (value 1)\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 32,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.31",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Damage tier:    ",
+        "^Light",
+        "^ (value ",
+        "^1",
+        "^)",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 44 (continue) ===
+OUTPUT "All Effects: Burn, Wet, Stun, Poison\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 39,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.38",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^All Effects:    ",
+        "^Burn, Wet, Stun, Poison",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 45 (continue) ===
+OUTPUT "All Damage: Light, Medium, Heavy\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 46,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.45",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^All Damage:     ",
+        "^Light, Medium, Heavy",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 46 (continue) ===
+OUTPUT "Effect count: 2\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 53,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.52",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Effect count:   ",
+        "^2",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 47 (continue) ===
+OUTPUT "Min effect: Burn\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 60,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.59",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Min effect:     ",
+        "^Burn",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 48 (continue) ===
+OUTPUT "Max effect: Stun\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 67,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.66",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Max effect:     ",
+        "^Stun",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 49 (continue) ===
+OUTPUT "Inverted FX: Wet, Poison\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 74,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.73",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Inverted FX:    ",
+        "^Wet, Poison",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 50 (continue) ===
+OUTPUT "Range FX 2..3: Wet, Stun\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 84,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.83",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Range FX 2..3:  ",
+        "^Wet, Stun",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 51 (continue) ===
+OUTPUT "Random of all FX: Poison\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 92,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.91",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Random of all FX: ",
+        "^Poison",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 52 (continue) ===
+OUTPUT "Damage by int 5: Medium\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 100,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.99",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Damage by int 5:  ",
+        "^Medium",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 53 (continue) ===
+OUTPUT "Element by int 3: Earth\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 108,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.107",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Element by int 3: ",
+        "^Earth",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 54 (continue) ===
+OUTPUT "Damage + 1:\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 116,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.115",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Damage + 1:       ",
+        "^",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 55 (continue) ===
+OUTPUT "Damage - 1:\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 124,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.123",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Damage - 1:       ",
+        "^",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 56 (continue) ===
+OUTPUT "Imperfect attack set.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 133,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.132",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Imperfect attack set. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 57 (continue) ===
+OUTPUT "Hits landed: Fire.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 142,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.141",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^     Hits landed: ",
+        "^Fire",
+        "^. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 58 (continue) ===
+OUTPUT "Burn+Stun synergy.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "ending",
+                "exp": false,
+                "idx": 151,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "ending.150",
+            "threadIndex": 59
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Burn+Stun synergy.      ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 59 (continue) ===
+OUTPUT "Light damage only.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 63,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ Light damage only. ",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1848543519,
+  "storySeed": 6,
+  "turnIdx": 5,
+  "turnIndices": {},
+  "variablesState": {
+    "attacks": {
+      "list": {
+        "Element.Earth": 3,
+        "Element.Fire": 1
+      }
+    },
+    "effects": {
+      "list": {
+        "Effect.Burn": 1,
+        "Effect.Stun": 3
+      }
+    },
+    "turns": 6
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== END ===
+
+TOTAL_STEPS 59
+TURNS 6
+HALT_REASON end_of_story

@@ -84,9 +84,39 @@ compiled_story_load :: proc(story: ^Compiled_Story, json_text: string) -> Load_E
 		return .Bad_Container
 	}
 
-	// listDefs (optional) — deferred. TheIntercept doesn't use LISTs.
+	if list_defs_val, has_list_defs := top["listDefs"]; has_list_defs {
+		if list_defs_obj, ok := list_defs_val.(json.Object); ok {
+			parse_list_definitions(&story.list_definitions, list_defs_obj)
+		}
+	}
 
 	return .None
+}
+
+@(private)
+parse_list_definitions :: proc(out: ^List_Definitions, obj: json.Object) {
+	out.by_list = make(map[string]^List_Definition)
+	out.by_item = make(map[string][dynamic]List_Item_Ref)
+
+	for list_name, list_val in obj {
+		items_obj, items_ok := list_val.(json.Object)
+		if !items_ok do continue
+
+		def := new(List_Definition)
+		def.name = list_name
+		def.items_by_name = make(map[string]int)
+		def.names_by_value = make(map[int]string)
+		for item_name, item_val in items_obj {
+			if n, n_ok := item_val.(json.Integer); n_ok {
+				def.items_by_name[item_name] = int(n)
+				def.names_by_value[int(n)] = item_name
+				refs, _ := out.by_item[item_name]
+				append(&refs, List_Item_Ref{origin_name = list_name, value = int(n)})
+				out.by_item[item_name] = refs
+			}
+		}
+		out.by_list[list_name] = def
+	}
 }
 
 // ---- Internals ------------------------------------------------------------

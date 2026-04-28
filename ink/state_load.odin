@@ -449,8 +449,38 @@ parse_runtime_object_dict :: proc(s: ^Story_State, obj: json.Object) -> ^Object 
 			return o
 		}
 	}
+	// List value: {"list": {"Origin.Item": value, ...}, "origins"?: [...]}
+	if v, ok := obj["list"]; ok {
+		if items_obj, items_ok := v.(json.Object); items_ok {
+			lv: List_Value
+			lv.value.items = make(map[List_Item]int, allocator = alloc)
+			for key, val in items_obj {
+				if n, n_ok := val.(json.Integer); n_ok {
+					origin, item := split_list_item_key(key)
+					lv.value.items[List_Item{
+						origin_name = clone_str(origin, alloc),
+						item_name   = clone_str(item, alloc),
+					}] = int(n)
+				}
+			}
+			if origins_val, origins_ok := obj["origins"]; origins_ok {
+				if arr, arr_ok := origins_val.(json.Array); arr_ok {
+					names := make([]string, len(arr), alloc)
+					for n, i in arr {
+						if str, str_ok := n.(json.String); str_ok {
+							names[i] = clone_str(string(str), alloc)
+						}
+					}
+					lv.value.origin_names = names
+				}
+			}
+			o := new(Object, alloc)
+			o.variant = lv
+			return o
+		}
+	}
 	// Other compiled-tree variants (Divert, ChoicePoint, VariableReference,
-	// VariableAssignment, ListValue) shouldn't normally appear in saved state
+	// VariableAssignment) shouldn't normally appear in saved state
 	// outputstream / evalstack. Fall through to nil if they do.
 	return nil
 }

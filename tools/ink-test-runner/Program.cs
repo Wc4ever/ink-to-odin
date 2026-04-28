@@ -9,33 +9,74 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SysPath = System.IO.Path; // disambiguate from Ink.Runtime.Path
 
-// Generates golden test logs by playing The Intercept with inkle's reference
-// runtime (Ink NuGet 0.14.0). Each log captures every public observable AND
-// the full state.ToJson() snapshot per step, so our Odin port can byte-diff
-// its output against this as ground truth.
+// Generates golden test logs by playing a compiled ink fixture with inkle's
+// reference runtime (vendored ink-engine-runtime). Each log captures every
+// public observable AND the full state.ToJson() snapshot per step, so our
+// Odin port can byte-diff its output against this as ground truth.
 //
-// Run with: dotnet run --project tools/ink-test-runner
+// Usage:
+//   dotnet run --project tools/ink-test-runner [fixture]
+//   dotnet run --project tools/ink-test-runner all
+//
+// `fixture` is a directory name under tests/fixtures/. If omitted, all
+// fixtures are processed. Each fixture's logs go to
+// tests/golden/reference/<fixture>/seed_{0..9}.log.
 
 internal static class Program
 {
-	const int    SeedCount  = 10;
-	const int    TurnLimit  = 500;
+	const int SeedCount = 10;
+	const int TurnLimit = 500;
 
 	// Resolved from AppContext.BaseDirectory which is bin/Debug/net9.0/.
 	// Up 5 lands at ink-to-odin/.
-	const string StoryPathRel = "../../../../../tests/fixtures/the_intercept/TheIntercept.ink.json";
-	const string LogsDirRel   = "../../../../../tests/golden/reference";
+	const string FixturesRel = "../../../../../tests/fixtures";
+	const string LogsBaseRel = "../../../../../tests/golden/reference";
 
 	static int Main(string[] args)
 	{
-		string projectDir = AppContext.BaseDirectory;
-		string storyPath  = SysPath.GetFullPath(SysPath.Combine(projectDir, StoryPathRel));
-		string logsDir    = SysPath.GetFullPath(SysPath.Combine(projectDir, LogsDirRel));
+		string projectDir   = AppContext.BaseDirectory;
+		string fixturesRoot = SysPath.GetFullPath(SysPath.Combine(projectDir, FixturesRel));
+		string logsRoot     = SysPath.GetFullPath(SysPath.Combine(projectDir, LogsBaseRel));
 
-		if (!File.Exists(storyPath)) {
-			Console.Error.WriteLine("Compiled story not found at " + storyPath);
+		if (!Directory.Exists(fixturesRoot)) {
+			Console.Error.WriteLine("Fixtures dir not found at " + fixturesRoot);
 			return 1;
 		}
+
+		var fixtures = new List<string>();
+		if (args.Length == 0 || args[0] == "all") {
+			foreach (var dir in Directory.EnumerateDirectories(fixturesRoot)) {
+				fixtures.Add(SysPath.GetFileName(dir));
+			}
+			fixtures.Sort(StringComparer.Ordinal);
+		} else {
+			fixtures.Add(args[0]);
+		}
+
+		foreach (var name in fixtures) {
+			int rc = RunFixture(fixturesRoot, logsRoot, name);
+			if (rc != 0) return rc;
+		}
+		return 0;
+	}
+
+	static int RunFixture(string fixturesRoot, string logsRoot, string name)
+	{
+		string fixtureDir = SysPath.Combine(fixturesRoot, name);
+		if (!Directory.Exists(fixtureDir)) {
+			Console.Error.WriteLine("Fixture dir not found: " + fixtureDir);
+			return 1;
+		}
+
+		// Pick the first *.ink.json under the fixture dir.
+		var jsonFiles = Directory.GetFiles(fixtureDir, "*.ink.json");
+		if (jsonFiles.Length == 0) {
+			Console.Error.WriteLine("No *.ink.json in " + fixtureDir);
+			return 1;
+		}
+		string storyPath = jsonFiles[0];
+
+		string logsDir = SysPath.Combine(logsRoot, name);
 		Directory.CreateDirectory(logsDir);
 
 		string storyJson = File.ReadAllText(storyPath);

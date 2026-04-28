@@ -450,9 +450,54 @@ write_runtime_object :: proc(w: ^JW, o: ^Object) {
 		jw_obj_end(w)
 
 	case List_Value:
-		// LISTs deferred — emit null until we have a story that exercises them.
-		jw_null(w)
+		write_list_value(w, v)
 	}
+}
+
+// {"list": {"Origin.Item": value, ...}, "origins"?: [...]}
+// Items are emitted alphabetically by full name so output is byte-deterministic.
+// "origins" appears only for empty lists with retained type info, mirroring
+// JsonSerialisation.WriteListRuntimeObj (Count == 0 && originNames != null).
+@(private)
+write_list_value :: proc(w: ^JW, lv: List_Value) {
+	jw_obj_start(w)
+	jw_property(w, "list")
+	jw_obj_start(w)
+
+	keys := make([dynamic]string, 0, len(lv.value.items), w.alloc)
+	defer {
+		for k in keys do delete(k, w.alloc)
+		delete(keys)
+	}
+	for item in lv.value.items {
+		full := full_list_item_name(item, w.alloc)
+		append(&keys, full)
+	}
+	slice.sort(keys[:])
+
+	for k in keys {
+		origin, item := split_list_item_key(k)
+		val, _ := lv.value.items[List_Item{origin_name = origin, item_name = item}]
+		jw_property(w, k)
+		jw_int(w, i64(val))
+	}
+	jw_obj_end(w)
+
+	if len(lv.value.items) == 0 && len(lv.value.origin_names) > 0 {
+		jw_property(w, "origins")
+		jw_arr_start(w)
+		for n in lv.value.origin_names {
+			jw_string(w, n)
+		}
+		jw_arr_end(w)
+	}
+	jw_obj_end(w)
+}
+
+@(private)
+full_list_item_name :: proc(item: List_Item, alloc := context.allocator) -> string {
+	if len(item.origin_name) == 0 do return strings.clone(item.item_name, alloc)
+	return strings.concatenate({item.origin_name, ".", item.item_name}, alloc)
 }
 
 // ---- Helpers --------------------------------------------------------------
@@ -469,10 +514,22 @@ runtime_objects_equal :: proc(a, b: ^Object) -> bool {
 		if vb, ok := b.variant.(Divert_Target_Value); ok do return va.target == vb.target
 	case Variable_Pointer_Value:
 		if vb, ok := b.variant.(Variable_Pointer_Value); ok do return va.name == vb.name && va.context_index == vb.context_index
-	case Container, List_Value, Glue, Void, Tag, Control_Command, Native_Function_Call, Divert, Choice_Point, Variable_Reference, Variable_Assignment:
+	case List_Value:
+		if vb, ok := b.variant.(List_Value); ok do return ink_lists_equal(va.value, vb.value)
+	case Container, Glue, Void, Tag, Control_Command, Native_Function_Call, Divert, Choice_Point, Variable_Reference, Variable_Assignment:
 		return false
 	}
 	return false
+}
+
+@(private)
+ink_lists_equal :: proc(a, b: Ink_List) -> bool {
+	if len(a.items) != len(b.items) do return false
+	for k, v in a.items {
+		bv, ok := b.items[k]
+		if !ok || bv != v do return false
+	}
+	return true
 }
 
 @(private)

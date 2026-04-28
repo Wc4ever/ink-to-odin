@@ -3,6 +3,41 @@ package ink
 import "core:strings"
 import "core:testing"
 
+LISTS_JSON_BYTES :: #load("../tests/fixtures/lists/Lists.ink.json")
+
+// Round-trip: feed the lists fixture's initial state through save/load/save
+// and require byte-identical output. Catches list-specific serialization
+// bugs that the_intercept (which has no lists) cannot.
+@(test)
+test_state_load_round_trip_lists_initial :: proc(t: ^testing.T) {
+	story: Compiled_Story
+	if err := compiled_story_load(&story, string(LISTS_JSON_BYTES)); err != .None {
+		testing.fail_now(t, "lists load failed")
+	}
+	defer compiled_story_destroy(&story)
+
+	state1: Story_State
+	if !story_state_init(&state1, &story) do testing.fail_now(t, "init failed (state1)")
+	defer story_state_destroy(&state1)
+
+	first := state_to_json(&state1)
+	defer delete(first)
+
+	state2: Story_State
+	if !story_state_init(&state2, &story) do testing.fail_now(t, "init failed (state2)")
+	defer story_state_destroy(&state2)
+
+	if err := state_load_json(&state2, first); err != .None {
+		testing.expectf(t, false, "state_load_json failed: %v", err)
+		return
+	}
+
+	second := state_to_json(&state2)
+	defer delete(second)
+
+	testing.expect_value(t, second, first)
+}
+
 // Round-trip: state_to_json → state_load_json → state_to_json must be byte
 // identical. If the load path drops a field or changes a representation, the
 // second snapshot drifts.

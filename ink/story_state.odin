@@ -102,6 +102,8 @@ story_state_init :: proc(s: ^Story_State, story: ^Compiled_Story) -> bool {
 
 	call_stack_init(&s.call_stack, story.root)
 	variable_state_init(&s.variables_state, &s.call_stack)
+	s.variables_state.list_definitions = &story.list_definitions
+	s.variables_state.runtime_alloc = story_state_runtime_allocator(s)
 	output_stream_init(&s.output_stream)
 
 	s.current_choices = make([dynamic]Choice, 0, 0)

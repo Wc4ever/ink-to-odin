@@ -6,22 +6,41 @@ import "core:slice"
 import "core:strings"
 import "core:testing"
 
+// One fixture under test = the compiled story bytes plus its dotnet golden
+// directory (a #load_directory of seed_*.log files). Add a new fixture by
+// loading its bytes here, dropping it into FIXTURES below, and committing
+// goldens under tests/golden/reference/<name>/.
 INTERCEPT_JSON :: #load("../../tests/fixtures/the_intercept/TheIntercept.ink.json")
+LISTS_JSON     :: #load("../../tests/fixtures/lists/Lists.ink.json")
 
-// All seed_*.log files from the dotnet golden directory, baked in at compile
-// time. Sorted by filename so seed_N pairs with the N-th entry.
-GOLDEN_SEEDS := #load_directory("../../tests/golden/reference")
+INTERCEPT_GOLDENS := #load_directory("../../tests/golden/reference/the_intercept")
+LISTS_GOLDENS     := #load_directory("../../tests/golden/reference/lists")
 
-// Runs the Odin runner for each seed in 0..9 and byte-diffs the output
-// against the dotnet-produced golden log. Pass = byte-identical to inkle's
-// reference runtime. Failure for any seed reports the first divergent line
-// with surrounding context.
+Fixture :: struct {
+	name:    string,
+	story:   string,
+	goldens: []runtime.Load_Directory_File,
+}
+
+// Runs the Odin runner for each seed in 0..9 of every fixture and byte-diffs
+// the output against the dotnet-produced golden log. Pass = byte-identical
+// to inkle's reference runtime. Failure for any seed reports the first
+// divergent line with surrounding context.
 @(test)
 test_diff_all_seeds :: proc(t: ^testing.T) {
+	fxs := [?]Fixture{
+		{name = "the_intercept", story = string(INTERCEPT_JSON), goldens = INTERCEPT_GOLDENS},
+		{name = "lists",         story = string(LISTS_JSON),     goldens = LISTS_GOLDENS},
+	}
+	for fx in fxs do diff_fixture(t, fx)
+}
+
+@(private = "file")
+diff_fixture :: proc(t: ^testing.T, fx: Fixture) {
 	// #load_directory's order isn't guaranteed across platforms, and we want
 	// seed_N's golden in slot N. Filter to seed_*.log files and sort by name.
-	files := make([dynamic]runtime.Load_Directory_File, 0, len(GOLDEN_SEEDS), context.temp_allocator)
-	for f in GOLDEN_SEEDS {
+	files := make([dynamic]runtime.Load_Directory_File, 0, len(fx.goldens), context.temp_allocator)
+	for f in fx.goldens {
 		base := f.name
 		if i := strings.last_index_byte(base, '/'); i >= 0 do base = base[i + 1:]
 		if i := strings.last_index_byte(base, '\\'); i >= 0 do base = base[i + 1:]
@@ -31,13 +50,13 @@ test_diff_all_seeds :: proc(t: ^testing.T) {
 	slice.sort_by(files[:], proc(a, b: runtime.Load_Directory_File) -> bool { return a.name < b.name })
 
 	for f, seed in files {
-		check_seed(t, seed, string(f.data))
+		check_seed(t, fx.name, seed, fx.story, string(f.data))
 	}
 }
 
 @(private = "file")
-check_seed :: proc(t: ^testing.T, seed: int, golden: string) {
-	got := run_seed(string(INTERCEPT_JSON), seed)
+check_seed :: proc(t: ^testing.T, fixture_name: string, seed: int, story: string, golden: string) {
+	got := run_seed(story, seed)
 	defer delete(got)
 
 	// Goldens were written on Windows (CRLF); our builder emits LF. Normalize.
@@ -62,7 +81,7 @@ check_seed :: proc(t: ^testing.T, seed: int, golden: string) {
 	lo := max(0, div - context_window)
 
 	b := strings.builder_make(context.temp_allocator)
-	fmt.sbprintfln(&b, "seed %d: first divergence at line %d (1-based: %d)", seed, div, div + 1)
+	fmt.sbprintfln(&b, "[%s] seed %d: first divergence at line %d (1-based: %d)", fixture_name, seed, div, div + 1)
 	fmt.sbprintfln(&b, "  golden has %d lines, odin has %d lines", len(want_lines), len(got_lines))
 	fmt.sbprintln(&b)
 	fmt.sbprintln(&b, "context (- golden, + odin):")

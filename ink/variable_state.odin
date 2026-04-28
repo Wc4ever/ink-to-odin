@@ -1,5 +1,7 @@
 package ink
 
+import "base:runtime"
+
 // Variable_State: globals (current + defaults), variable-pointer deref,
 // and the assignment routine the evaluator calls for `~ var = value`.
 //
@@ -18,9 +20,13 @@ package ink
 // (StatePatch is a background-save isolation mechanism, deferred).
 
 Variable_State :: struct {
-	globals:    map[string]^Object,
-	defaults:   map[string]^Object,
-	call_stack: ^Call_Stack,
+	globals:          map[string]^Object,
+	defaults:         map[string]^Object,
+	call_stack:       ^Call_Stack,
+	list_definitions: ^List_Definitions, // borrowed from Compiled_Story
+	// Allocator for List_Value objects synthesized by list-item lookup;
+	// borrowed from Story_State's runtime arena.
+	runtime_alloc:    runtime.Allocator,
 }
 
 // ---- Lifecycle ------------------------------------------------------------
@@ -106,11 +112,28 @@ variable_state_get_raw_variable_with_name :: proc(vs: ^Variable_State, name: str
 	if context_index == 0 || context_index == -1 {
 		if v, ok := vs.globals[name]; ok do return v
 		if v, ok := vs.defaults[name]; ok do return v
-		// (List-item lookup against ListDefinitionsOrigin goes here when we
-		// add LIST support. TheIntercept doesn't use lists, so omit for now.)
+		// Fall through to LIST item lookup. "Burn" → single-item Effect.Burn.
+		// Mirrors C# VariablesState[name] -> ListDefinitionsOrigin.
+		if vs.list_definitions != nil {
+			if ref, ok := list_definitions_lookup_unique(vs.list_definitions, name); ok {
+				return synthesize_single_item_list_value(vs, name, ref)
+			}
+		}
 	}
 	// Fall through to temp.
 	return call_stack_get_temporary_variable(vs.call_stack, name, context_index)
+}
+
+@(private)
+synthesize_single_item_list_value :: proc(vs: ^Variable_State, item_name: string, ref: List_Item_Ref) -> ^Object {
+	alloc := vs.runtime_alloc
+	if alloc.procedure == nil do alloc = context.allocator
+	o := new(Object, alloc)
+	lv: List_Value
+	lv.value.items = make(map[List_Item]int, allocator = alloc)
+	lv.value.items[List_Item{origin_name = ref.origin_name, item_name = item_name}] = ref.value
+	o.variant = lv
+	return o
 }
 
 variable_state_value_at_variable_pointer :: proc(vs: ^Variable_State, ptr: Variable_Pointer_Value) -> ^Object {

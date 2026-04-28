@@ -479,7 +479,67 @@ execute_control_command :: proc(s: ^Story_State, cmd: Control_Command) -> bool {
 	case .Sequence_Shuffle_Index:
 		eval_stack_push_int(s, next_sequence_shuffle_index(s))
 
-	case .Turns_Since, .Read_Count, .Random, .Seed_Random, .Start_Thread, .List_From_Int, .List_Range, .List_Random:
+	case .List_Range:
+		// Pops max, min, target — min/max may be int OR list value.
+		// For list bounds, C# uses minItem.Value for min, maxItem.Value for max.
+		max_obj := eval_stack_pop(s)
+		min_obj := eval_stack_pop(s)
+		target_obj := eval_stack_pop(s)
+		target, t_ok := list_value_of(target_obj)
+		if !t_ok {
+			story_state_error(s, "LIST_RANGE expects a list as third arg")
+			return true
+		}
+		alloc := story_state_runtime_allocator(s)
+		eval_stack_push(s, new_list_object(ink_list_range(target, list_range_min(min_obj), list_range_max(max_obj), alloc), alloc))
+
+	case .List_From_Int:
+		// Pops int, then list-name string. Returns the list def's item with
+		// that exact value, wrapped as a single-item list. Empty list if no
+		// item matches.
+		int_obj := eval_stack_pop(s)
+		name_obj := eval_stack_pop(s)
+		ai, _, _ := as_number(int_obj)
+		list_name: string
+		if sv, ok := name_obj.variant.(String_Value); ok do list_name = sv.value
+		alloc := story_state_runtime_allocator(s)
+		out: Ink_List
+		out.items = make(map[List_Item]int, allocator = alloc)
+		if def, has := s.compiled_story.list_definitions.by_list[list_name]; has {
+			if item_name, found := def.names_by_value[int(ai)]; found {
+				out.items[List_Item{origin_name = list_name, item_name = item_name}] = int(ai)
+			}
+		}
+		eval_stack_push(s, new_list_object(out, alloc))
+
+	case .List_Random:
+		// Pops a list, picks one item using (storySeed + previousRandom) as
+		// .NET Random seed. Output is a single-item list with that pick.
+		// Order of iteration must be deterministic and match C# (insertion
+		// order in C# Dictionary == sorted by (value, name) for our lists,
+		// since the listDef JSON is value-ordered).
+		l_obj := eval_stack_pop(s)
+		l, ok := list_value_of(l_obj)
+		alloc := story_state_runtime_allocator(s)
+		out: Ink_List
+		out.items = make(map[List_Item]int, allocator = alloc)
+		if !ok {
+			story_state_error(s, "LIST_RANDOM expects a list")
+			return true
+		}
+		if len(l.items) > 0 {
+			rng: Net_Random
+			net_random_init(&rng, s.story_seed + s.previous_random)
+			next := net_random_next(&rng)
+			idx := next % len(l.items)
+			sorted := ink_list_sorted_items(l, story_state_runtime_allocator(s))
+			pick := sorted[idx]
+			out.items[pick] = l.items[pick]
+			s.previous_random = next
+		}
+		eval_stack_push(s, new_list_object(out, alloc))
+
+	case .Turns_Since, .Read_Count, .Random, .Seed_Random, .Start_Thread:
 		story_state_error(s, fmt.tprintf("control command %v not yet implemented", cmd))
 	}
 
@@ -585,6 +645,62 @@ execute_native_function :: proc(s: ^Story_State, name: string) -> bool {
 		if is_f do eval_stack_push_float(s, af)
 		else    do eval_stack_push_float(s, f64(ai))
 		return true
+	case "LIST_COUNT":
+		a := eval_stack_pop(s)
+		l, ok := list_value_of(a)
+		if !ok {
+			story_state_error(s, "LIST_COUNT expects a list")
+			return true
+		}
+		eval_stack_push_int(s, i64(len(l.items)))
+		return true
+	case "LIST_VALUE":
+		a := eval_stack_pop(s)
+		l, ok := list_value_of(a)
+		if !ok {
+			story_state_error(s, "LIST_VALUE expects a list")
+			return true
+		}
+		eval_stack_push_int(s, i64(ink_list_single_value(l)))
+		return true
+	case "LIST_MIN":
+		a := eval_stack_pop(s)
+		l, ok := list_value_of(a)
+		if !ok {
+			story_state_error(s, "LIST_MIN expects a list")
+			return true
+		}
+		eval_stack_push(s, new_list_object(ink_list_min_as_list(l, story_state_runtime_allocator(s)), story_state_runtime_allocator(s)))
+		return true
+	case "LIST_MAX":
+		a := eval_stack_pop(s)
+		l, ok := list_value_of(a)
+		if !ok {
+			story_state_error(s, "LIST_MAX expects a list")
+			return true
+		}
+		eval_stack_push(s, new_list_object(ink_list_max_as_list(l, story_state_runtime_allocator(s)), story_state_runtime_allocator(s)))
+		return true
+	case "LIST_ALL":
+		a := eval_stack_pop(s)
+		l, ok := list_value_of(a)
+		if !ok {
+			story_state_error(s, "LIST_ALL expects a list")
+			return true
+		}
+		alloc := story_state_runtime_allocator(s)
+		eval_stack_push(s, new_list_object(ink_list_all(l, &s.compiled_story.list_definitions, alloc), alloc))
+		return true
+	case "LIST_INVERT":
+		a := eval_stack_pop(s)
+		l, ok := list_value_of(a)
+		if !ok {
+			story_state_error(s, "LIST_INVERT expects a list")
+			return true
+		}
+		alloc := story_state_runtime_allocator(s)
+		eval_stack_push(s, new_list_object(ink_list_invert(l, &s.compiled_story.list_definitions, alloc), alloc))
+		return true
 	}
 
 	// 2-arg ops.
@@ -593,6 +709,42 @@ execute_native_function :: proc(s: ^Story_State, name: string) -> bool {
 	if a == nil || b == nil {
 		story_state_error(s, fmt.tprintf("native '%s' had insufficient args on eval stack", name))
 		return true
+	}
+
+	// List+int / list-int: shifts each item's value by ±N within its origin's
+	// item-by-value space. Items whose target value isn't a defined item are
+	// silently dropped. C# rejects int+list (only list+int) — we match.
+	if al, a_is_list := list_value_of(a); a_is_list {
+		if (name == "+" || name == "-") {
+			if _, b_is_int := b.variant.(Int_Value); b_is_int {
+				bi64, _, _ := as_number(b)
+				delta := int(bi64)
+				if name == "-" do delta = -delta
+				eval_stack_push(s, new_list_object(ink_list_shift(al, delta, &s.compiled_story.list_definitions, story_state_runtime_allocator(s)), story_state_runtime_allocator(s)))
+				return true
+			}
+		}
+	}
+
+	// List-vs-list operations dispatch first; numeric coercion below would
+	// silently turn a list into 0 and yield wrong results.
+	if al, a_is_list := list_value_of(a); a_is_list {
+		if bl, b_is_list := list_value_of(b); b_is_list {
+			alloc := story_state_runtime_allocator(s)
+			switch name {
+			case "+":  eval_stack_push(s, new_list_object(ink_list_union(al, bl, alloc), alloc)); return true
+			case "-":  eval_stack_push(s, new_list_object(ink_list_difference(al, bl, alloc), alloc)); return true
+			case "^":  eval_stack_push(s, new_list_object(ink_list_intersect(al, bl, alloc), alloc)); return true
+			case "?":  eval_stack_push_bool(s, ink_list_contains_all(al, bl)); return true
+			case "!?": eval_stack_push_bool(s, !ink_list_contains_all(al, bl)); return true
+			case "==": eval_stack_push_bool(s, ink_lists_equal(al, bl)); return true
+			case "!=": eval_stack_push_bool(s, !ink_lists_equal(al, bl)); return true
+			case ">":  eval_stack_push_bool(s, ink_list_min_value(al) > ink_list_max_value(bl)); return true
+			case "<":  eval_stack_push_bool(s, ink_list_max_value(al) < ink_list_min_value(bl)); return true
+			case ">=": eval_stack_push_bool(s, ink_list_min_value(al) >= ink_list_min_value(bl) && ink_list_max_value(al) >= ink_list_max_value(bl)); return true
+			case "<=": eval_stack_push_bool(s, ink_list_max_value(al) <= ink_list_max_value(bl) && ink_list_min_value(al) <= ink_list_min_value(bl)); return true
+			}
+		}
 	}
 
 	// String-vs-string concatenation and equality.
@@ -701,6 +853,33 @@ execute_native_function :: proc(s: ^Story_State, name: string) -> bool {
 		story_state_error(s, fmt.tprintf("native '%s' not yet implemented (int)", name))
 	}
 	return true
+}
+
+// LIST_RANGE bounds: int → that int; list → minItem.Value (for min bound)
+// or maxItem.Value (for max bound). Mirrors InkList.ListWithSubRange.
+@(private)
+list_range_min :: proc(o: ^Object) -> int {
+	if o == nil do return 0
+	if v, ok := o.variant.(Int_Value); ok do return int(v.value)
+	if v, ok := o.variant.(Float_Value); ok do return int(v.value)
+	if v, ok := o.variant.(List_Value); ok && len(v.value.items) > 0 do return ink_list_min_value(v.value)
+	return 0
+}
+
+@(private)
+list_range_max :: proc(o: ^Object) -> int {
+	if o == nil do return max(int)
+	if v, ok := o.variant.(Int_Value); ok do return int(v.value)
+	if v, ok := o.variant.(Float_Value); ok do return int(v.value)
+	if v, ok := o.variant.(List_Value); ok && len(v.value.items) > 0 do return ink_list_max_value(v.value)
+	return max(int)
+}
+
+@(private)
+list_value_of :: proc(o: ^Object) -> (l: Ink_List, ok: bool) {
+	if o == nil do return {}, false
+	if lv, is_lv := o.variant.(List_Value); is_lv do return lv.value, true
+	return {}, false
 }
 
 @(private)
@@ -1180,7 +1359,8 @@ value_to_string :: proc(obj: ^Object, allocator := context.allocator) -> string 
 	case Bool_Value:   return v.value ? "true" : "false"
 	case String_Value: return v.value
 	case Divert_Target_Value: return v.target
-	case Variable_Pointer_Value, Container, Divert, Choice_Point, Variable_Reference, Variable_Assignment, Tag, Glue, Void, Control_Command, Native_Function_Call, List_Value:
+	case List_Value: return ink_list_to_string(v.value, allocator)
+	case Variable_Pointer_Value, Container, Divert, Choice_Point, Variable_Reference, Variable_Assignment, Tag, Glue, Void, Control_Command, Native_Function_Call:
 		return ""
 	}
 	return ""

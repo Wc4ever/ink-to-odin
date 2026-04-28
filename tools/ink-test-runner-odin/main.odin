@@ -2,6 +2,7 @@ package ink_test_runner_odin
 
 import "core:fmt"
 import "core:os"
+import "core:slice"
 import "core:strings"
 import ink "../../ink"
 
@@ -31,25 +32,62 @@ import ink "../../ink"
 //   TURNS T
 //   HALT_REASON {end_of_story|turn_limit}
 //
-// Outputs to ../../tests/golden/odin/seed_{0..9}.log (relative to cwd at
-// invocation time).
+// Usage:
+//   odin run tools/ink-test-runner-odin             # all fixtures
+//   odin run tools/ink-test-runner-odin -- <name>   # one fixture
+//
+// Outputs go to ../../tests/golden/odin/<fixture>/seed_{0..9}.log relative
+// to cwd at invocation time. <fixture> is a directory name under
+// ../../tests/fixtures/ — must contain exactly one *.ink.json file.
 
-SEED_COUNT :: 10
-TURN_LIMIT :: 500
-STORY_PATH :: "../../tests/fixtures/the_intercept/TheIntercept.ink.json"
-LOGS_DIR   :: "../../tests/golden/odin"
+SEED_COUNT    :: 10
+TURN_LIMIT    :: 500
+FIXTURES_ROOT :: "../../tests/fixtures"
+LOGS_ROOT     :: "../../tests/golden/odin"
 
 main :: proc() {
-	story_bytes, ok := os.read_entire_file(STORY_PATH)
+	fixtures: [dynamic]string
+	defer delete(fixtures)
+
+	args := os.args[1:]
+	if len(args) == 0 || args[0] == "all" {
+		f, err := os.open(FIXTURES_ROOT)
+		if err != nil {
+			fmt.eprintfln("could not open %s: %v", FIXTURES_ROOT, err)
+			os.exit(1)
+		}
+		defer os.close(f)
+		entries, rerr := os.read_dir(f, 0, context.temp_allocator)
+		if rerr != nil {
+			fmt.eprintfln("could not read %s: %v", FIXTURES_ROOT, rerr)
+			os.exit(1)
+		}
+		for e in entries do if e.is_dir do append(&fixtures, e.name)
+		slice.sort(fixtures[:])
+	} else {
+		append(&fixtures, args[0])
+	}
+
+	for name in fixtures do run_fixture(name)
+}
+
+run_fixture :: proc(name: string) {
+	story_path := find_story_path(name)
+	defer delete(story_path)
+
+	story_bytes, ok := os.read_entire_file(story_path)
 	if !ok {
-		fmt.eprintfln("could not read %s (run from tools/ink-test-runner-odin/)", STORY_PATH)
+		fmt.eprintfln("could not read %s", story_path)
 		os.exit(1)
 	}
 	defer delete(story_bytes)
 
-	if !os.exists(LOGS_DIR) {
-		if err := os.make_directory(LOGS_DIR); err != nil {
-			fmt.eprintfln("could not create %s: %v", LOGS_DIR, err)
+	logs_dir := fmt.aprintf("%s/%s", LOGS_ROOT, name)
+	defer delete(logs_dir)
+	if !os.exists(LOGS_ROOT) do os.make_directory(LOGS_ROOT)
+	if !os.exists(logs_dir) {
+		if err := os.make_directory(logs_dir); err != nil {
+			fmt.eprintfln("could not create %s: %v", logs_dir, err)
 			os.exit(1)
 		}
 	}
@@ -57,7 +95,7 @@ main :: proc() {
 	for seed in 0 ..< SEED_COUNT {
 		log := run_seed(string(story_bytes), seed)
 		defer delete(log)
-		path := fmt.aprintf("%s/seed_%d.log", LOGS_DIR, seed)
+		path := fmt.aprintf("%s/seed_%d.log", logs_dir, seed)
 		defer delete(path)
 		if !os.write_entire_file(path, transmute([]byte)log) {
 			fmt.eprintfln("could not write %s", path)
@@ -65,6 +103,33 @@ main :: proc() {
 		}
 		fmt.printfln("Wrote %s", path)
 	}
+}
+
+find_story_path :: proc(name: string) -> string {
+	dir := fmt.aprintf("%s/%s", FIXTURES_ROOT, name)
+	f, ferr := os.open(dir)
+	if ferr != nil {
+		fmt.eprintfln("fixture dir not found: %s", dir)
+		delete(dir)
+		os.exit(1)
+	}
+	entries, rerr := os.read_dir(f, 0, context.temp_allocator)
+	os.close(f)
+	if rerr != nil {
+		fmt.eprintfln("could not read %s: %v", dir, rerr)
+		delete(dir)
+		os.exit(1)
+	}
+	for e in entries {
+		if !e.is_dir && strings.has_suffix(e.name, ".ink.json") {
+			path := fmt.aprintf("%s/%s", dir, e.name)
+			delete(dir)
+			return path
+		}
+	}
+	fmt.eprintfln("no *.ink.json in %s", dir)
+	delete(dir)
+	os.exit(1)
 }
 
 run_seed :: proc(story_json: string, seed: int) -> string {
