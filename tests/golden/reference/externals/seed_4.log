@@ -1,0 +1,1362 @@
+SEED 4
+TURN_LIMIT 500
+
+=== STEP 0 (initial) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": []
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 4,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {},
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 1 (continue) ===
+OUTPUT "You roll a 3 (visit 1).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0",
+                "exp": false,
+                "idx": 28,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.27",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You roll a ",
+        "^3",
+        "^ (visit ",
+        "^1",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1752227528,
+  "storySeed": 4,
+  "turnIdx": -1,
+  "turnIndices": {
+    "arena": -1
+  },
+  "variablesState": {
+    "last_roll": 3
+  },
+  "visitCounts": {
+    "arena": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 2 (continue) ===
+OUTPUT "Hello, hero!\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 4,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.59",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "choiceThreads": {
+        "1": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 41,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.40",
+          "threadIndex": 1
+        },
+        "2": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 47,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.46",
+          "threadIndex": 2
+        },
+        "3": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 53,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.52",
+          "threadIndex": 3
+        },
+        "4": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 59,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.58",
+          "threadIndex": 4
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.41",
+          "originalThreadIndex": 1,
+          "targetPath": "arena.0.c-0",
+          "text": "Score 5"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.47",
+          "originalThreadIndex": 2,
+          "targetPath": "arena.0.c-1",
+          "text": "Score 9"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.53",
+          "originalThreadIndex": 3,
+          "targetPath": "arena.0.c-2",
+          "text": "Score 12"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.59",
+          "originalThreadIndex": 4,
+          "targetPath": "arena.0.c-3",
+          "text": "Skip"
+        }
+      ],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1752227528,
+  "storySeed": 4,
+  "turnIdx": -1,
+  "turnIndices": {
+    "arena": -1
+  },
+  "variablesState": {
+    "last_roll": 3
+  },
+  "visitCounts": {
+    "arena": 1
+  }
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Score 5" index=0 pathOnChoice=arena.0.c-0 threadAtGen=1
+  [1] "Score 9" index=1 pathOnChoice=arena.0.c-1 threadAtGen=2
+  [2] "Score 12" index=2 pathOnChoice=arena.0.c-2 threadAtGen=3
+  [3] "Skip" index=3 pathOnChoice=arena.0.c-3 threadAtGen=4
+PICK 0
+=== STEP 3 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 4,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0.c-0",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.40",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1752227528,
+  "storySeed": 4,
+  "turnIdx": 0,
+  "turnIndices": {
+    "arena": -1
+  },
+  "variablesState": {
+    "last_roll": 3
+  },
+  "visitCounts": {
+    "arena": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 4 (continue) ===
+OUTPUT "Score 5 grade: low.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 4,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "evaluate",
+                "exp": false,
+                "idx": 18,
+                "temp": {
+                  "grade": "^low"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "evaluate.17",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Score ",
+        "^5",
+        "^ grade: ",
+        "^low",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1752227528,
+  "storySeed": 4,
+  "turnIdx": 0,
+  "turnIndices": {
+    "arena": -1
+  },
+  "variablesState": {
+    "last_roll": 3,
+    "last_score": 5
+  },
+  "visitCounts": {
+    "arena": 1
+  }
+}
+STATE_JSON_END
+
+=== STEP 5 (continue) ===
+OUTPUT "You roll a 6 (visit 2).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 4,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0",
+                "exp": false,
+                "idx": 28,
+                "temp": {
+                  "grade": "^low"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.27",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You roll a ",
+        "^6",
+        "^ (visit ",
+        "^2",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1422046961,
+  "storySeed": 4,
+  "turnIdx": 0,
+  "turnIndices": {
+    "arena": 0
+  },
+  "variablesState": {
+    "last_roll": 6,
+    "last_score": 5
+  },
+  "visitCounts": {
+    "arena": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 6 (continue) ===
+OUTPUT "Hello, hero!\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 8,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "temp": {
+                  "grade": "^low"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.59",
+            "threadIndex": 1
+          }
+        ]
+      },
+      "choiceThreads": {
+        "5": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 41,
+              "temp": {
+                "grade": "^low"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.40",
+          "threadIndex": 5
+        },
+        "6": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 47,
+              "temp": {
+                "grade": "^low"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.46",
+          "threadIndex": 6
+        },
+        "7": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 53,
+              "temp": {
+                "grade": "^low"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.52",
+          "threadIndex": 7
+        },
+        "8": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 59,
+              "temp": {
+                "grade": "^low"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.58",
+          "threadIndex": 8
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.41",
+          "originalThreadIndex": 5,
+          "targetPath": "arena.0.c-0",
+          "text": "Score 5"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.47",
+          "originalThreadIndex": 6,
+          "targetPath": "arena.0.c-1",
+          "text": "Score 9"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.53",
+          "originalThreadIndex": 7,
+          "targetPath": "arena.0.c-2",
+          "text": "Score 12"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.59",
+          "originalThreadIndex": 8,
+          "targetPath": "arena.0.c-3",
+          "text": "Skip"
+        }
+      ],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1422046961,
+  "storySeed": 4,
+  "turnIdx": 0,
+  "turnIndices": {
+    "arena": 0
+  },
+  "variablesState": {
+    "last_roll": 6,
+    "last_score": 5
+  },
+  "visitCounts": {
+    "arena": 2
+  }
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Score 5" index=0 pathOnChoice=arena.0.c-0 threadAtGen=5
+  [1] "Score 9" index=1 pathOnChoice=arena.0.c-1 threadAtGen=6
+  [2] "Score 12" index=2 pathOnChoice=arena.0.c-2 threadAtGen=7
+  [3] "Skip" index=3 pathOnChoice=arena.0.c-3 threadAtGen=8
+PICK 1
+=== STEP 7 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 8,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0.c-1",
+                "exp": false,
+                "idx": 0,
+                "temp": {
+                  "grade": "^low"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.46",
+            "threadIndex": 6
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1422046961,
+  "storySeed": 4,
+  "turnIdx": 1,
+  "turnIndices": {
+    "arena": 0
+  },
+  "variablesState": {
+    "last_roll": 6,
+    "last_score": 5
+  },
+  "visitCounts": {
+    "arena": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 8 (continue) ===
+OUTPUT "Score 9 grade: mid.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 8,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "evaluate",
+                "exp": false,
+                "idx": 18,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "evaluate.17",
+            "threadIndex": 6
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Score ",
+        "^9",
+        "^ grade: ",
+        "^mid",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 1422046961,
+  "storySeed": 4,
+  "turnIdx": 1,
+  "turnIndices": {
+    "arena": 0
+  },
+  "variablesState": {
+    "last_roll": 6,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 2
+  }
+}
+STATE_JSON_END
+
+=== STEP 9 (continue) ===
+OUTPUT "You roll a 5 (visit 3).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 8,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0",
+                "exp": false,
+                "idx": 28,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.27",
+            "threadIndex": 6
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You roll a ",
+        "^5",
+        "^ (visit ",
+        "^3",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 446829430,
+  "storySeed": 4,
+  "turnIdx": 1,
+  "turnIndices": {
+    "arena": 1
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 3
+  }
+}
+STATE_JSON_END
+
+=== STEP 10 (continue) ===
+OUTPUT "Hello, hero!\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 12,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.59",
+            "threadIndex": 6
+          }
+        ]
+      },
+      "choiceThreads": {
+        "10": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 47,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.46",
+          "threadIndex": 10
+        },
+        "11": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 53,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.52",
+          "threadIndex": 11
+        },
+        "12": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 59,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.58",
+          "threadIndex": 12
+        },
+        "9": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 41,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.40",
+          "threadIndex": 9
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.41",
+          "originalThreadIndex": 9,
+          "targetPath": "arena.0.c-0",
+          "text": "Score 5"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.47",
+          "originalThreadIndex": 10,
+          "targetPath": "arena.0.c-1",
+          "text": "Score 9"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.53",
+          "originalThreadIndex": 11,
+          "targetPath": "arena.0.c-2",
+          "text": "Score 12"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.59",
+          "originalThreadIndex": 12,
+          "targetPath": "arena.0.c-3",
+          "text": "Skip"
+        }
+      ],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 446829430,
+  "storySeed": 4,
+  "turnIdx": 1,
+  "turnIndices": {
+    "arena": 1
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 3
+  }
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Score 5" index=0 pathOnChoice=arena.0.c-0 threadAtGen=9
+  [1] "Score 9" index=1 pathOnChoice=arena.0.c-1 threadAtGen=10
+  [2] "Score 12" index=2 pathOnChoice=arena.0.c-2 threadAtGen=11
+  [3] "Skip" index=3 pathOnChoice=arena.0.c-3 threadAtGen=12
+PICK 1
+=== STEP 11 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 12,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0.c-1",
+                "exp": false,
+                "idx": 0,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.46",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 446829430,
+  "storySeed": 4,
+  "turnIdx": 2,
+  "turnIndices": {
+    "arena": 1
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 3
+  }
+}
+STATE_JSON_END
+
+=== STEP 12 (continue) ===
+OUTPUT "Score 9 grade: mid.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 12,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "evaluate",
+                "exp": false,
+                "idx": 18,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "evaluate.17",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Score ",
+        "^9",
+        "^ grade: ",
+        "^mid",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 446829430,
+  "storySeed": 4,
+  "turnIdx": 2,
+  "turnIndices": {
+    "arena": 1
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 3
+  }
+}
+STATE_JSON_END
+
+=== STEP 13 (continue) ===
+OUTPUT "You roll a 5 (visit 4).\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 12,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0",
+                "exp": false,
+                "idx": 28,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.27",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You roll a ",
+        "^5",
+        "^ (visit ",
+        "^4",
+        "^).",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 370753816,
+  "storySeed": 4,
+  "turnIdx": 2,
+  "turnIndices": {
+    "arena": 2
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 4
+  }
+}
+STATE_JSON_END
+
+=== STEP 14 (continue) ===
+OUTPUT "Hello, hero!\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 16,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.59",
+            "threadIndex": 10
+          }
+        ]
+      },
+      "choiceThreads": {
+        "13": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 41,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.40",
+          "threadIndex": 13
+        },
+        "14": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 47,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.46",
+          "threadIndex": 14
+        },
+        "15": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 53,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.52",
+          "threadIndex": 15
+        },
+        "16": {
+          "callstack": [
+            {
+              "cPath": "arena.0",
+              "exp": false,
+              "idx": 59,
+              "temp": {
+                "grade": "^mid"
+              },
+              "type": 0
+            }
+          ],
+          "previousContentObject": "arena.0.58",
+          "threadIndex": 16
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.41",
+          "originalThreadIndex": 13,
+          "targetPath": "arena.0.c-0",
+          "text": "Score 5"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.47",
+          "originalThreadIndex": 14,
+          "targetPath": "arena.0.c-1",
+          "text": "Score 9"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.53",
+          "originalThreadIndex": 15,
+          "targetPath": "arena.0.c-2",
+          "text": "Score 12"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "arena.0.59",
+          "originalThreadIndex": 16,
+          "targetPath": "arena.0.c-3",
+          "text": "Skip"
+        }
+      ],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 370753816,
+  "storySeed": 4,
+  "turnIdx": 2,
+  "turnIndices": {
+    "arena": 2
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 4
+  }
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Score 5" index=0 pathOnChoice=arena.0.c-0 threadAtGen=13
+  [1] "Score 9" index=1 pathOnChoice=arena.0.c-1 threadAtGen=14
+  [2] "Score 12" index=2 pathOnChoice=arena.0.c-2 threadAtGen=15
+  [3] "Skip" index=3 pathOnChoice=arena.0.c-3 threadAtGen=16
+PICK 0
+=== STEP 15 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 16,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "arena.0.c-0",
+                "exp": false,
+                "idx": 0,
+                "temp": {
+                  "grade": "^mid"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "arena.0.40",
+            "threadIndex": 13
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Hello, ",
+        "^hero",
+        "^!",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 370753816,
+  "storySeed": 4,
+  "turnIdx": 3,
+  "turnIndices": {
+    "arena": 2
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 9
+  },
+  "visitCounts": {
+    "arena": 4
+  }
+}
+STATE_JSON_END
+
+=== STEP 16 (continue) ===
+OUTPUT "Score 5 grade: low.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 16,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "evaluate",
+                "exp": false,
+                "idx": 18,
+                "temp": {
+                  "grade": "^low"
+                },
+                "type": 0
+              }
+            ],
+            "previousContentObject": "evaluate.17",
+            "threadIndex": 13
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^Score ",
+        "^5",
+        "^ grade: ",
+        "^low",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 370753816,
+  "storySeed": 4,
+  "turnIdx": 3,
+  "turnIndices": {
+    "arena": 2
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 5
+  },
+  "visitCounts": {
+    "arena": 4
+  }
+}
+STATE_JSON_END
+
+=== STEP 17 (continue) ===
+OUTPUT "After 5 rolls, you head home.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 16,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ ",
+        "^After ",
+        "^5",
+        "^ rolls, you head home.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 370753816,
+  "storySeed": 4,
+  "turnIdx": 3,
+  "turnIndices": {
+    "arena": 3
+  },
+  "variablesState": {
+    "last_roll": 5,
+    "last_score": 5
+  },
+  "visitCounts": {
+    "arena": 5
+  }
+}
+STATE_JSON_END
+
+=== END ===
+
+TOTAL_STEPS 17
+TURNS 4
+HALT_REASON end_of_story

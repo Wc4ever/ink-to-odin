@@ -49,6 +49,20 @@ Story_State :: struct {
 	previous_random: int,
 	did_safe_exit:   bool,
 
+	// EXTERNAL function bindings + fallback toggle. When an `is_external`
+	// divert fires and no binding is registered for the name, the runtime
+	// optionally diverts to a same-named ink knot.
+	externals:                            map[string]External_Binding,
+	allow_external_function_fallbacks:    bool,
+
+	// Lookahead-safety machinery (mirrors C# Story._sawLookaheadUnsafe...
+	// + _stateSnapshotAtLastNewline). story_continue toggles
+	// snapshot_at_last_newline_exists when it takes/restores/discards its
+	// internal snap; execute_external_call reads it to decide whether an
+	// unsafe binding can run now or must defer until snapshot is settled.
+	snapshot_at_last_newline_exists:             bool,
+	saw_lookahead_unsafe_function_after_newline: bool,
+
 	current_errors:   [dynamic]string,
 	current_warnings: [dynamic]string,
 
@@ -133,6 +147,8 @@ story_state_destroy :: proc(s: ^Story_State) {
 	output_stream_destroy(&s.output_stream)
 	variable_state_destroy(&s.variables_state)
 	call_stack_destroy(&s.call_stack)
+
+	if s.externals != nil do delete(s.externals)
 
 	virtual.arena_destroy(&s.runtime_arena)
 	s^ = {}

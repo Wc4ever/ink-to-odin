@@ -93,6 +93,11 @@ internal static class Program
 	static string RunSeed(string storyJson, int seed)
 	{
 		var story = new Story(storyJson);
+		// Fixtures use `EXTERNAL` declarations backed by ink-side functions of
+		// the same name; both the dotnet runner and the Odin runtime need this
+		// flag enabled so the runtime falls back to those functions instead of
+		// erroring on unbound externals.
+		story.allowExternalFunctionFallbacks = true;
 		SeedStoryRng(story, seed);
 		var pickRng = new Random(seed);
 

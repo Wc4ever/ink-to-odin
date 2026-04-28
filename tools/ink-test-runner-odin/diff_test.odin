@@ -14,11 +14,13 @@ INTERCEPT_JSON      :: #load("../../tests/fixtures/the_intercept/TheIntercept.in
 LISTS_JSON          :: #load("../../tests/fixtures/lists/Lists.ink.json")
 RANDOM_VISITS_JSON  :: #load("../../tests/fixtures/random_visits/RandomVisits.ink.json")
 THREADS_JSON        :: #load("../../tests/fixtures/threads/Threads.ink.json")
+EXTERNALS_JSON      :: #load("../../tests/fixtures/externals/Externals.ink.json")
 
 INTERCEPT_GOLDENS     := #load_directory("../../tests/golden/reference/the_intercept")
 LISTS_GOLDENS         := #load_directory("../../tests/golden/reference/lists")
 RANDOM_VISITS_GOLDENS := #load_directory("../../tests/golden/reference/random_visits")
 THREADS_GOLDENS       := #load_directory("../../tests/golden/reference/threads")
+EXTERNALS_GOLDENS     := #load_directory("../../tests/golden/reference/externals")
 
 Fixture :: struct {
 	name:    string,
@@ -37,6 +39,7 @@ test_diff_all_seeds :: proc(t: ^testing.T) {
 		{name = "lists",          story = string(LISTS_JSON),         goldens = LISTS_GOLDENS},
 		{name = "random_visits",  story = string(RANDOM_VISITS_JSON), goldens = RANDOM_VISITS_GOLDENS},
 		{name = "threads",        story = string(THREADS_JSON),       goldens = THREADS_GOLDENS},
+		{name = "externals",      story = string(EXTERNALS_JSON),     goldens = EXTERNALS_GOLDENS},
 	}
 	for fx in fxs do diff_fixture(t, fx)
 }

@@ -1,6 +1,7 @@
 package ink
 
 import "core:fmt"
+import "core:math"
 import "core:strings"
 
 // Flip to true to dump per-step pointer/path/divert info to stderr while
@@ -38,6 +39,7 @@ story_continue :: proc(s: ^Story_State) -> bool {
 	}
 
 	s.did_safe_exit = false
+	s.saw_lookahead_unsafe_function_after_newline = false
 	output_stream_reset(&s.output_stream)
 
 	// Newline lookahead via full state snapshot. When the output ends in a
@@ -47,8 +49,22 @@ story_continue :: proc(s: ^Story_State) -> bool {
 	// stack, choices, visit counts, etc. — so the next Continue re-runs the
 	// post-newline content cleanly. Mirrors C# StateSnapshot/RestoreStateSnapshot.
 	snap: State_Snapshot
-	have_snap := false
 	snap_text_len := 0
+
+	take_snap :: proc(s: ^Story_State, snap: ^State_Snapshot, snap_text_len: ^int) {
+		snap^ = state_snapshot_take(s)
+		txt := output_stream_current_text(&s.output_stream, context.temp_allocator)
+		snap_text_len^ = len(txt)
+		s.snapshot_at_last_newline_exists = true
+	}
+	drop_snap :: proc(s: ^Story_State, snap: ^State_Snapshot) {
+		state_snapshot_discard(snap)
+		s.snapshot_at_last_newline_exists = false
+	}
+	rewind_snap :: proc(s: ^Story_State, snap: ^State_Snapshot) {
+		state_snapshot_restore(s, snap)
+		s.snapshot_at_last_newline_exists = false
+	}
 
 	step_count := 0
 	for {
@@ -66,7 +82,7 @@ story_continue :: proc(s: ^Story_State) -> bool {
 		if story_state_has_error(s) do return false
 
 		if !output_stream_in_string_evaluation(&s.output_stream) {
-			if have_snap {
+			if s.snapshot_at_last_newline_exists {
 				txt := output_stream_current_text(&s.output_stream, context.temp_allocator)
 
 				// Did the newline at snap-time still occupy that position? If
@@ -77,11 +93,8 @@ story_continue :: proc(s: ^Story_State) -> bool {
 					len(txt) >= snap_text_len &&
 					snap_text_len > 0 &&
 					txt[snap_text_len - 1] == '\n'
-				if !newline_intact {
-					state_snapshot_discard(&snap)
-					have_snap = false
-				} else if len(txt) > snap_text_len {
-					extended := false
+				extended := false
+				if newline_intact && len(txt) > snap_text_len {
 					for i in snap_text_len ..< len(txt) {
 						c := txt[i]
 						if c != ' ' && c != '\t' {
@@ -89,24 +102,22 @@ story_continue :: proc(s: ^Story_State) -> bool {
 							break
 						}
 					}
-					if extended {
-						state_snapshot_restore(s, &snap)
-						return true
-					}
+				}
+				if !newline_intact {
+					drop_snap(s, &snap)
+				} else if extended || s.saw_lookahead_unsafe_function_after_newline {
+					rewind_snap(s, &snap)
+					return true
 				}
 			}
 
 			if output_stream_ends_in_newline(&s.output_stream) {
 				if story_state_can_continue(s) {
-					if !have_snap {
-						snap = state_snapshot_take(s)
-						txt := output_stream_current_text(&s.output_stream, context.temp_allocator)
-						snap_text_len = len(txt)
-						have_snap = true
+					if !s.snapshot_at_last_newline_exists {
+						take_snap(s, &snap, &snap_text_len)
 					}
-				} else if have_snap {
-					state_snapshot_discard(&snap)
-					have_snap = false
+				} else if s.snapshot_at_last_newline_exists {
+					drop_snap(s, &snap)
 				}
 			}
 		}
@@ -117,7 +128,7 @@ story_continue :: proc(s: ^Story_State) -> bool {
 	// If we exit with a snapshot still pending (e.g. canContinue went false
 	// before we hit any extension), discard rather than restore — the
 	// post-newline state is the real one we want to keep.
-	if have_snap do state_snapshot_discard(&snap)
+	if s.snapshot_at_last_newline_exists do drop_snap(s, &snap)
 	return true
 }
 
@@ -320,8 +331,7 @@ execute_divert :: proc(s: ^Story_State, d: Divert, here: ^Object) -> bool {
 	}
 
 	if d.is_external {
-		story_state_error(s, fmt.tprintf("external function '%s' not yet implemented", d.target_path))
-		return true
+		return execute_external_call(s, d)
 	}
 
 	target_path_string := d.target_path
@@ -344,6 +354,11 @@ execute_divert :: proc(s: ^Story_State, d: Divert, here: ^Object) -> bool {
 		story_state_error(s, fmt.tprintf("divert target not found: %s", target_path_string))
 		return true
 	}
+	// Mirror C# Divert.targetPointer: for a name-final path (index == -1)
+	// the divert lands at the container's first child (index 0), NOT at the
+	// container itself. This avoids re-visiting the named container's outer
+	// frame when diverting WITHIN it (e.g. `-> arena` from inside `arena`).
+	if target_pointer.index == -1 do target_pointer.index = 0
 
 	when DEBUG_TRACE {
 		// Show what each divert resolves to.
@@ -857,19 +872,7 @@ execute_native_function :: proc(s: ^Story_State, name: string) -> bool {
 		case "%":
 			// Odin doesn't allow % on floats directly; use math
 			eval_stack_push_float(s, af - bf * f64(i64(af / bf)))
-		case "POW":
-			// math.pow not imported; do via repeated mul fallback for simple cases
-			if bf == f64(i64(bf)) {
-				exp := i64(bf)
-				r := f64(1)
-				if exp >= 0 {
-					for _ in 0 ..< exp do r *= af
-				}
-				eval_stack_push_float(s, r)
-			} else {
-				story_state_error(s, "POW with non-integer exponent not yet implemented")
-				return true
-			}
+		case "POW": eval_stack_push_float(s, math.pow(af, bf))
 		case "==": eval_stack_push_bool(s, af == bf)
 		case "!=": eval_stack_push_bool(s, af != bf)
 		case ">":  eval_stack_push_bool(s, af >  bf)

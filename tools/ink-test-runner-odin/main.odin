@@ -147,6 +147,9 @@ run_seed :: proc(story_json: string, seed: int) -> string {
 
 	state.story_seed = seed
 	state.previous_random = 0
+	// Match the dotnet runner: fixtures use EXTERNAL declarations backed by
+	// same-named ink fallbacks, so leave fallbacks on globally.
+	state.allow_external_function_fallbacks = true
 
 	pick_rng: Net_Random
 	net_random_init(&pick_rng, seed)
