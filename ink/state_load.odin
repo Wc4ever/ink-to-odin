@@ -48,8 +48,9 @@ state_load_json :: proc(s: ^Story_State, json_text: string) -> State_Load_Error 
 		return .Missing_Save_Version
 	}
 
-	// Reset mutable runtime state — but NOT the runtime arena yet, since we're
-	// about to repopulate with parsed values.
+	// Reset every flow back to a clean slate.
+	for _, &flow in s.inactive_flows do flow_destroy(&flow)
+	clear(&s.inactive_flows)
 	for &t in s.call_stack.threads do call_stack_thread_destroy(&t)
 	clear(&s.call_stack.threads)
 	for &c in s.current_choices do choice_destroy(&c)
@@ -59,20 +60,40 @@ state_load_json :: proc(s: ^Story_State, json_text: string) -> State_Load_Error 
 	clear(&s.visit_counts)
 	clear(&s.turn_indices)
 	s.diverted_pointer = POINTER_NULL
+	s.current_flow_name = DEFAULT_FLOW_NAME
 
-	// Flows. We only support single-default-flow; reject multi-flow saves
-	// as not-yet-implemented (TheIntercept doesn't use multi-flow).
+	// Flows. The active flow is identified by currentFlowName; every other
+	// entry under `flows` is loaded into inactive_flows.
 	flows_val, has_flows := top["flows"]
 	if !has_flows do return .Missing_Flows
 	flows_obj, flows_ok := flows_val.(json.Object)
 	if !flows_ok do return .Missing_Flows
 
-	for _, flow_val in flows_obj {
-		flow_obj, ok := flow_val.(json.Object)
+	target_current := DEFAULT_FLOW_NAME
+	if cfn, has_cfn := top["currentFlowName"]; has_cfn {
+		if str, ok := cfn.(json.String); ok do target_current = string(str)
+	}
+
+	// Load each flow by switching to it (which creates the flow if missing
+	// and parks the previous one in inactive_flows), then loading per-flow
+	// data into the active slot. Process the active flow LAST so it ends
+	// up in the active fields.
+	flow_names := make([dynamic]string, 0, len(flows_obj), context.temp_allocator)
+	for n in flows_obj do append(&flow_names, n)
+	for n in flow_names {
+		if n == target_current do continue
+		flow_obj, ok := flows_obj[n].(json.Object)
 		if !ok do return .Bad_Flow
+		story_switch_flow(s, n)
 		err := load_flow_into_state(s, flow_obj)
 		if err != .None do return err
-		break // single-flow assumption
+	}
+	if active_obj, ok := flows_obj[target_current].(json.Object); ok {
+		story_switch_flow(s, target_current)
+		err := load_flow_into_state(s, active_obj)
+		if err != .None do return err
+	} else if len(flow_names) == 0 {
+		return .Bad_Flow
 	}
 
 	// Variables: overlay values from JSON onto existing globals; defaults
@@ -122,6 +143,16 @@ state_load_json :: proc(s: ^Story_State, json_text: string) -> State_Load_Error 
 
 @(private)
 load_flow_into_state :: proc(s: ^Story_State, flow_obj: json.Object) -> State_Load_Error {
+	// Clear active flow's per-flow data before populating from JSON. Required
+	// because story_switch_flow (which the caller may have just used to create
+	// a fresh slot) initializes the flow with a default thread / empty stream
+	// that we need to overwrite, not append to.
+	for &t in s.call_stack.threads do call_stack_thread_destroy(&t)
+	clear(&s.call_stack.threads)
+	for &c in s.current_choices do choice_destroy(&c)
+	clear(&s.current_choices)
+	clear(&s.output_stream.stream)
+
 	// callstack: { threadCounter, threads: [...] }
 	if cs_val, ok := flow_obj["callstack"]; ok {
 		if cs_obj, cs_ok := cs_val.(json.Object); cs_ok {

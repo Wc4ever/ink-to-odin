@@ -2,6 +2,7 @@ package ink
 
 import "core:mem"
 import "core:mem/virtual"
+import "core:strings"
 
 // Story_State: the entire mutable runtime state of a story playthrough.
 //
@@ -32,10 +33,21 @@ Story_State :: struct {
 	// Owns evaluator-produced runtime objects; cleared on reset/load.
 	runtime_arena: virtual.Arena,
 
+	// Active flow's data — per-flow state (callstack, output stream, pending
+	// choices). Stored as direct fields rather than indirected through a Flow
+	// pointer so the call sites that read these can stay unchanged. On
+	// story_switch_flow, these fields swap with the matching entry in
+	// inactive_flows.
 	call_stack:      Call_Stack,
 	variables_state: Variable_State,
 	output_stream:   Output_Stream,
 	current_choices: [dynamic]Choice,
+
+	// Multi-flow storage. Holds the inactive flows ONLY (the active one lives
+	// in the fields above). current_flow_name identifies which flow is active.
+	// For default single-flow stories, inactive_flows stays empty.
+	inactive_flows:    map[string]Flow,
+	current_flow_name: string,
 
 	eval_stack: [dynamic]^Object,
 
@@ -95,6 +107,26 @@ choice_destroy :: proc(c: ^Choice) {
 	call_stack_thread_destroy(&c.thread_at_generation)
 }
 
+// Per-flow execution state. Each flow has its own callstack, output stream,
+// and pending choice list — but globals (variables, visit/turn counts) are
+// shared across flows on the parent Story_State. Mirrors C# Ink.Runtime.Flow.
+//
+// At any moment the *active* flow's three pieces live as direct fields on
+// Story_State (call_stack, output_stream, current_choices); inactive flows
+// are parked in Story_State.inactive_flows under their name.
+Flow :: struct {
+	call_stack:      Call_Stack,
+	output_stream:   Output_Stream,
+	current_choices: [dynamic]Choice,
+}
+
+flow_destroy :: proc(f: ^Flow) {
+	for &c in f.current_choices do choice_destroy(&c)
+	delete(f.current_choices)
+	output_stream_destroy(&f.output_stream)
+	call_stack_destroy(&f.call_stack)
+}
+
 // ---- Lifecycle ------------------------------------------------------------
 
 // Initializes a Story_State for the given Compiled_Story. The story state's
@@ -119,6 +151,9 @@ story_state_init :: proc(s: ^Story_State, story: ^Compiled_Story) -> bool {
 	s.variables_state.list_definitions = &story.list_definitions
 	s.variables_state.runtime_alloc = story_state_runtime_allocator(s)
 	output_stream_init(&s.output_stream)
+
+	s.inactive_flows = make(map[string]Flow)
+	s.current_flow_name = DEFAULT_FLOW_NAME
 
 	s.current_choices = make([dynamic]Choice, 0, 0)
 	s.eval_stack = make([dynamic]^Object, 0, 0)
@@ -148,10 +183,81 @@ story_state_destroy :: proc(s: ^Story_State) {
 	variable_state_destroy(&s.variables_state)
 	call_stack_destroy(&s.call_stack)
 
+	for _, &flow in s.inactive_flows do flow_destroy(&flow)
+	delete(s.inactive_flows)
+
 	if s.externals != nil do delete(s.externals)
 
 	virtual.arena_destroy(&s.runtime_arena)
 	s^ = {}
+}
+
+// ---- Flow management -----------------------------------------------------
+//
+// A Flow is a parallel execution cursor (callstack + output + pending choices)
+// over the same compiled story. Globals are shared; only the per-flow state
+// is per-flow. Mirrors C# Story.SwitchFlow / SwitchToDefaultFlow / RemoveFlow.
+
+// Returns the active flow's name (defaults to "DEFAULT_FLOW").
+story_current_flow_name :: proc(s: ^Story_State) -> string {
+	return s.current_flow_name
+}
+
+// Switch the active flow to `name`. If a flow by that name doesn't yet exist,
+// it's created with a fresh callstack at the start of the story root.
+// No-op if `name` is already active. Globals (variables, visit/turn counts)
+// are unaffected — only the per-flow execution cursor swaps.
+story_switch_flow :: proc(s: ^Story_State, name: string) {
+	if s.current_flow_name == name do return
+
+	// Park the current active flow under its name.
+	prev_name := strings.clone(s.current_flow_name, story_state_runtime_allocator(s))
+	s.inactive_flows[prev_name] = Flow {
+		call_stack      = s.call_stack,
+		output_stream   = s.output_stream,
+		current_choices = s.current_choices,
+	}
+
+	// Pop or freshly create the target flow into the active slot.
+	if existing, ok := s.inactive_flows[name]; ok {
+		s.call_stack      = existing.call_stack
+		s.output_stream   = existing.output_stream
+		s.current_choices = existing.current_choices
+		delete_key(&s.inactive_flows, name)
+		// Variable_State holds &s.call_stack; the address is unchanged so
+		// callstack-bound temp lookups continue to resolve into the active flow.
+	} else {
+		// Fresh flow: same shape as story_state_init does for the initial flow.
+		call_stack_init(&s.call_stack, s.compiled_story.root)
+		output_stream_init(&s.output_stream)
+		s.current_choices = make([dynamic]Choice, 0, 0)
+	}
+
+	s.current_flow_name = strings.clone(name, story_state_runtime_allocator(s))
+}
+
+story_switch_to_default_flow :: proc(s: ^Story_State) {
+	story_switch_flow(s, DEFAULT_FLOW_NAME)
+}
+
+// Removes a flow. Cannot remove the active flow or the default flow.
+story_remove_flow :: proc(s: ^Story_State, name: string) -> bool {
+	if name == DEFAULT_FLOW_NAME do return false
+	if name == s.current_flow_name do return false
+	flow, found := s.inactive_flows[name]
+	if !found do return false
+	flow_destroy(&flow)
+	delete_key(&s.inactive_flows, name)
+	return true
+}
+
+// Names of every flow currently in play (active + inactive). Caller owns the
+// returned slice (delete it).
+story_alive_flow_names :: proc(s: ^Story_State, allocator := context.allocator) -> []string {
+	names := make([dynamic]string, 0, len(s.inactive_flows) + 1, allocator)
+	append(&names, s.current_flow_name)
+	for n in s.inactive_flows do append(&names, n)
+	return names[:]
 }
 
 // Resets to "fresh story" state. The runtime arena is freed and re-created;

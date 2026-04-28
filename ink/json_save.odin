@@ -48,15 +48,30 @@ write_state :: proc(w: ^JW, s: ^Story_State) {
 	}
 
 	jw_property(w, "currentFlowName")
-	jw_string(w, DEFAULT_FLOW_NAME)
+	jw_string(w, s.current_flow_name)
 
 	jw_property(w, "evalStack")
 	write_runtime_object_list(w, s.eval_stack[:])
 
 	jw_property(w, "flows")
 	jw_obj_start(w)
-	jw_property(w, DEFAULT_FLOW_NAME)
-	write_flow(w, s)
+	{
+		// Sort all flow names (active + inactive) so output order is stable.
+		names := make([dynamic]string, 0, len(s.inactive_flows) + 1, w.alloc)
+		defer delete(names)
+		append(&names, s.current_flow_name)
+		for n in s.inactive_flows do append(&names, n)
+		slice.sort(names[:])
+		for n in names {
+			jw_property(w, n)
+			if n == s.current_flow_name {
+				write_flow(w, &s.call_stack, &s.output_stream, s.current_choices[:])
+			} else {
+				flow := s.inactive_flows[n]
+				write_flow(w, &flow.call_stack, &flow.output_stream, flow.current_choices[:])
+			}
+		}
+	}
 	jw_obj_end(w)
 
 	jw_property(w, "inkFormatVersion")
@@ -87,12 +102,12 @@ write_state :: proc(w: ^JW, s: ^Story_State) {
 }
 
 @(private)
-write_flow :: proc(w: ^JW, s: ^Story_State) {
+write_flow :: proc(w: ^JW, cs: ^Call_Stack, os: ^Output_Stream, choices: []Choice) {
 	jw_obj_start(w)
 
 	// Sorted: callstack, choiceThreads (opt), currentChoices, outputStream.
 	jw_property(w, "callstack")
-	write_callstack(w, &s.call_stack)
+	write_callstack(w, cs)
 
 	// choiceThreads: serialize each forked thread whose index is no longer
 	// present in the active callstack. Mirrors Flow.WriteJson. Keys are
@@ -100,15 +115,15 @@ write_flow :: proc(w: ^JW, s: ^Story_State) {
 	// alphabetical sort, where "10" sorts before "8").
 	{
 		Entry :: struct { key: string, thread: ^Call_Stack_Thread }
-		entries := make([dynamic]Entry, 0, len(s.current_choices), w.alloc)
+		entries := make([dynamic]Entry, 0, len(choices), w.alloc)
 		defer {
 			for &e in entries do delete(e.key, w.alloc)
 			delete(entries)
 		}
-		for i := 0; i < len(s.current_choices); i += 1 {
-			c := &s.current_choices[i]
+		for i := 0; i < len(choices); i += 1 {
+			c := &choices[i]
 			idx := c.thread_at_generation.thread_index
-			if call_stack_thread_with_index(&s.call_stack, idx) != nil do continue
+			if call_stack_thread_with_index(cs, idx) != nil do continue
 			key := fmt.aprintf("%d", idx, allocator = w.alloc)
 			append(&entries, Entry{key = key, thread = &c.thread_at_generation})
 		}
@@ -125,10 +140,10 @@ write_flow :: proc(w: ^JW, s: ^Story_State) {
 	}
 
 	jw_property(w, "currentChoices")
-	write_choices(w, s.current_choices[:])
+	write_choices(w, choices)
 
 	jw_property(w, "outputStream")
-	write_runtime_object_list(w, s.output_stream.stream[:])
+	write_runtime_object_list(w, os.stream[:])
 
 	jw_obj_end(w)
 }
