@@ -267,6 +267,15 @@ story_step :: proc(s: ^Story_State) {
 	}
 
 	next_content(s)
+
+	// Starting a thread happens AFTER the increment so the parent thread's
+	// pointer (and the cloned child thread's pointer) sit just past the
+	// StartThread instruction. Mirrors C# Story.Step lines 966-971.
+	if current_obj != nil {
+		if cmd, is_cmd := current_obj.variant.(Control_Command); is_cmd && cmd == .Start_Thread {
+			call_stack_push_thread(&s.call_stack)
+		}
+	}
 }
 
 @(private)
@@ -458,8 +467,14 @@ execute_control_command :: proc(s: ^Story_State, cmd: Control_Command) -> bool {
 		output_stream_push(&s.output_stream, mark, &s.call_stack, story_state_runtime_allocator(s))
 
 	case .Done:
-		// End the current flow segment.
-		story_state_set_current_pointer(s, POINTER_NULL)
+		// In a child thread, Done returns to the parent (popping the thread).
+		// In the mainline, Done flags safe-exit and clears the pointer.
+		if call_stack_can_pop_thread(&s.call_stack) {
+			call_stack_pop_thread(&s.call_stack)
+		} else {
+			s.did_safe_exit = true
+			story_state_set_current_pointer(s, POINTER_NULL)
+		}
 
 	case .End:
 		story_force_end(s)
@@ -593,7 +608,8 @@ execute_control_command :: proc(s: ^Story_State, cmd: Control_Command) -> bool {
 		eval_stack_push(s, v)
 
 	case .Start_Thread:
-		story_state_error(s, fmt.tprintf("control command %v not yet implemented", cmd))
+		// Marker only — the actual PushThread happens in story_step after
+		// the content pointer has incremented past this command.
 	}
 
 	return true
@@ -1134,6 +1150,10 @@ next_content :: proc(s: ^Story_State) {
 			if !pointer_is_null(story_state_current_pointer(s)) do next_content(s)
 		} else if call_stack_can_pop_thread(&s.call_stack) {
 			call_stack_pop_thread(&s.call_stack)
+			// Recurse: parent's pointer is now at whatever it was when the
+			// thread was pushed (typically a divert that "spawned" the thread).
+			// Step past it so the parent doesn't re-execute the spawn.
+			if !pointer_is_null(story_state_current_pointer(s)) do next_content(s)
 		}
 	}
 }

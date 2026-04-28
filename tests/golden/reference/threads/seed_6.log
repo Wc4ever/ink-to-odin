@@ -1,0 +1,1165 @@
+SEED 6
+TURN_LIMIT 500
+
+=== STEP 0 (initial) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": []
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {},
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 1 (continue) ===
+OUTPUT "You stand at the entrance. Round 1.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 0,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0",
+                "exp": false,
+                "idx": 21,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.20",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You stand at the entrance. Round ",
+        "^1",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 2 (continue) ===
+OUTPUT "What now?\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 5,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.36",
+            "threadIndex": 0
+          }
+        ]
+      },
+      "choiceThreads": {
+        "2": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 5,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.4",
+          "threadIndex": 2
+        },
+        "3": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 11,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.10",
+          "threadIndex": 3
+        },
+        "4": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 30,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.29",
+          "threadIndex": 4
+        },
+        "5": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 36,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.35",
+          "threadIndex": 5
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.5",
+          "originalThreadIndex": 2,
+          "targetPath": "options.0.c-0",
+          "text": "Check pack"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.11",
+          "originalThreadIndex": 3,
+          "targetPath": "options.0.c-1",
+          "text": "Listen"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.30",
+          "originalThreadIndex": 4,
+          "targetPath": "entrance.0.c-0",
+          "text": "March in"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.36",
+          "originalThreadIndex": 5,
+          "targetPath": "entrance.0.c-1",
+          "text": "Hesitate"
+        }
+      ],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": -1,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Check pack" index=0 pathOnChoice=options.0.c-0 threadAtGen=2
+  [1] "Listen" index=1 pathOnChoice=options.0.c-1 threadAtGen=3
+  [2] "March in" index=2 pathOnChoice=entrance.0.c-0 threadAtGen=4
+  [3] "Hesitate" index=3 pathOnChoice=entrance.0.c-1 threadAtGen=5
+PICK 3
+=== STEP 3 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 5,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0.c-1",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.35",
+            "threadIndex": 5
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 4 (continue) ===
+OUTPUT "You wait.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 5,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0.c-1",
+                "exp": false,
+                "idx": 3,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.c-1.2",
+            "threadIndex": 5
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You wait.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 1
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 5 (continue) ===
+OUTPUT "You stand at the entrance. Round 2.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 5,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0",
+                "exp": false,
+                "idx": 21,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.20",
+            "threadIndex": 5
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You stand at the entrance. Round ",
+        "^2",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 6 (continue) ===
+OUTPUT "What now?\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.36",
+            "threadIndex": 5
+          }
+        ]
+      },
+      "choiceThreads": {
+        "10": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 36,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.35",
+          "threadIndex": 10
+        },
+        "7": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 5,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.4",
+          "threadIndex": 7
+        },
+        "8": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 11,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.10",
+          "threadIndex": 8
+        },
+        "9": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 30,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.29",
+          "threadIndex": 9
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.5",
+          "originalThreadIndex": 7,
+          "targetPath": "options.0.c-0",
+          "text": "Check pack"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.11",
+          "originalThreadIndex": 8,
+          "targetPath": "options.0.c-1",
+          "text": "Listen"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.30",
+          "originalThreadIndex": 9,
+          "targetPath": "entrance.0.c-0",
+          "text": "March in"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.36",
+          "originalThreadIndex": 10,
+          "targetPath": "entrance.0.c-1",
+          "text": "Hesitate"
+        }
+      ],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 0,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Check pack" index=0 pathOnChoice=options.0.c-0 threadAtGen=7
+  [1] "Listen" index=1 pathOnChoice=options.0.c-1 threadAtGen=8
+  [2] "March in" index=2 pathOnChoice=entrance.0.c-0 threadAtGen=9
+  [3] "Hesitate" index=3 pathOnChoice=entrance.0.c-1 threadAtGen=10
+PICK 0
+=== STEP 7 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "options.0.c-0",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "options.0.4",
+            "threadIndex": 7
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 8 (continue) ===
+OUTPUT "You rummage through your pack.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "options.0.c-0",
+                "exp": false,
+                "idx": 3,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "options.0.c-0.2",
+            "threadIndex": 7
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You rummage through your pack.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 2
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 9 (continue) ===
+OUTPUT "You stand at the entrance. Round 3.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 10,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0",
+                "exp": false,
+                "idx": 21,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.20",
+            "threadIndex": 7
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You stand at the entrance. Round ",
+        "^3",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 10 (continue) ===
+OUTPUT "What now?\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 15,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.36",
+            "threadIndex": 7
+          }
+        ]
+      },
+      "choiceThreads": {
+        "12": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 5,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.4",
+          "threadIndex": 12
+        },
+        "13": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 11,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.10",
+          "threadIndex": 13
+        },
+        "14": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 30,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.29",
+          "threadIndex": 14
+        },
+        "15": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 36,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.35",
+          "threadIndex": 15
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.5",
+          "originalThreadIndex": 12,
+          "targetPath": "options.0.c-0",
+          "text": "Check pack"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.11",
+          "originalThreadIndex": 13,
+          "targetPath": "options.0.c-1",
+          "text": "Listen"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.30",
+          "originalThreadIndex": 14,
+          "targetPath": "entrance.0.c-0",
+          "text": "March in"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.36",
+          "originalThreadIndex": 15,
+          "targetPath": "entrance.0.c-1",
+          "text": "Hesitate"
+        }
+      ],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 1,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Check pack" index=0 pathOnChoice=options.0.c-0 threadAtGen=12
+  [1] "Listen" index=1 pathOnChoice=options.0.c-1 threadAtGen=13
+  [2] "March in" index=2 pathOnChoice=entrance.0.c-0 threadAtGen=14
+  [3] "Hesitate" index=3 pathOnChoice=entrance.0.c-1 threadAtGen=15
+PICK 0
+=== STEP 11 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 15,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "options.0.c-0",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "options.0.4",
+            "threadIndex": 12
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 12 (continue) ===
+OUTPUT "You rummage through your pack.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 15,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "options.0.c-0",
+                "exp": false,
+                "idx": 3,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "options.0.c-0.2",
+            "threadIndex": 12
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You rummage through your pack.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 3
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 13 (continue) ===
+OUTPUT "You stand at the entrance. Round 4.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 15,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0",
+                "exp": false,
+                "idx": 21,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.20",
+            "threadIndex": 12
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You stand at the entrance. Round ",
+        "^4",
+        "^.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 14 (continue) ===
+OUTPUT "What now?\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.36",
+            "threadIndex": 12
+          }
+        ]
+      },
+      "choiceThreads": {
+        "17": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 5,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.4",
+          "threadIndex": 17
+        },
+        "18": {
+          "callstack": [
+            {
+              "cPath": "options.0",
+              "exp": false,
+              "idx": 11,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "options.0.10",
+          "threadIndex": 18
+        },
+        "19": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 30,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.29",
+          "threadIndex": 19
+        },
+        "20": {
+          "callstack": [
+            {
+              "cPath": "entrance.0",
+              "exp": false,
+              "idx": 36,
+              "type": 0
+            }
+          ],
+          "previousContentObject": "entrance.0.35",
+          "threadIndex": 20
+        }
+      },
+      "currentChoices": [
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.5",
+          "originalThreadIndex": 17,
+          "targetPath": "options.0.c-0",
+          "text": "Check pack"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "options.0.11",
+          "originalThreadIndex": 18,
+          "targetPath": "options.0.c-1",
+          "text": "Listen"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.30",
+          "originalThreadIndex": 19,
+          "targetPath": "entrance.0.c-0",
+          "text": "March in"
+        },
+        {
+          "index": 0,
+          "originalChoicePath": "entrance.0.36",
+          "originalThreadIndex": 20,
+          "targetPath": "entrance.0.c-1",
+          "text": "Hesitate"
+        }
+      ],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 2,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+CHOICES 4
+  [0] "Check pack" index=0 pathOnChoice=options.0.c-0 threadAtGen=17
+  [1] "Listen" index=1 pathOnChoice=options.0.c-1 threadAtGen=18
+  [2] "March in" index=2 pathOnChoice=entrance.0.c-0 threadAtGen=19
+  [3] "Hesitate" index=3 pathOnChoice=entrance.0.c-1 threadAtGen=20
+PICK 2
+=== STEP 15 (after_pick) ===
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0.c-0",
+                "exp": false,
+                "idx": 0,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.29",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^What now?",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 16 (continue) ===
+OUTPUT "You march in.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "cPath": "entrance.0.c-0",
+                "exp": false,
+                "idx": 3,
+                "type": 0
+              }
+            ],
+            "previousContentObject": "entrance.0.c-0.2",
+            "threadIndex": 19
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^You march in.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== STEP 17 (continue) ===
+OUTPUT "You decide to leave after 4 rounds.\n"
+TAGS []
+STATE_JSON_BEGIN
+{
+  "currentFlowName": "DEFAULT_FLOW",
+  "evalStack": [],
+  "flows": {
+    "DEFAULT_FLOW": {
+      "callstack": {
+        "threadCounter": 20,
+        "threads": [
+          {
+            "callstack": [
+              {
+                "exp": false,
+                "type": 0
+              }
+            ],
+            "threadIndex": 0
+          }
+        ]
+      },
+      "currentChoices": [],
+      "outputStream": [
+        "^ ",
+        "^You decide to leave after ",
+        "^4",
+        "^ rounds.",
+        "\n"
+      ]
+    }
+  },
+  "inkFormatVersion": 21,
+  "inkSaveVersion": 10,
+  "previousRandom": 0,
+  "storySeed": 6,
+  "turnIdx": 3,
+  "turnIndices": {},
+  "variablesState": {
+    "rounds": 4
+  },
+  "visitCounts": {}
+}
+STATE_JSON_END
+
+=== END ===
+
+TOTAL_STEPS 17
+TURNS 4
+HALT_REASON end_of_story
