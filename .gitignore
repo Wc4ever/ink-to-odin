@@ -1,0 +1,26 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+.vs/
+
+# Editors
+.idea/
+.vscode/
+
+# Claude Code local settings (per-developer)
+.claude/
+
+# Output of the Odin test runner — regenerated on every `odin run` of
+# tools/ink-test-runner-odin/. The diff test loads only reference/ goldens.
+tests/golden/odin/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Odin build outputs
+*.exe
+*.pdb
+*.ilk
